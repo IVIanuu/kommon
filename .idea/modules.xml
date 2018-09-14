@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidKtx.iml" filepath="$PROJECT_DIR$/AndroidKtx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat/appcompat.iml" filepath="$PROJECT_DIR$/appcompat/appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardview/cardview.iml" filepath="$PROJECT_DIR$/cardview/cardview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragment/fragment.iml" filepath="$PROJECT_DIR$/fragment/fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/internal/internal.iml" filepath="$PROJECT_DIR$/internal/internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lifecycle/lifecycle.iml" filepath="$PROJECT_DIR$/lifecycle/lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialcomponents/materialcomponents.iml" filepath="$PROJECT_DIR$/materialcomponents/materialcomponents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview/recyclerview.iml" filepath="$PROJECT_DIR$/recyclerview/recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpager/viewpager.iml" filepath="$PROJECT_DIR$/viewpager/viewpager.iml" />
+    </modules>
+  </component>
+</project>

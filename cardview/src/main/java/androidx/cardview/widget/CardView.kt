@@ -1,0 +1,47 @@
+/*
+ * Copyright 2018 Manuel Wrage
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package androidx.cardview.widget
+
+import androidx.core.view.color
+import androidx.core.view.dimenPx
+import androidx.internal.NO_GETTER
+import androidx.internal.noGetter
+
+var CardView.cardBackgroundColorInt: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) { setBackgroundColor(value) }
+
+var CardView.cardBackgroundColorIntResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) { cardBackgroundColorInt = color(value) }
+
+var CardView.cardElevationResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) { cardElevation = dimenPx(value).toFloat() }
+
+var CardView.maxCardElevationResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) { maxCardElevation = dimenPx(value).toFloat() }
+
+var CardView.radiusResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) { radius = dimenPx(value).toFloat() }

@@ -1,0 +1,54 @@
+@file:Suppress("ClassName", "unused")
+
+object Versions {
+    // android
+    const val compileSdk = 28
+    const val minSdk = 21
+    const val targetSdk = 28
+    const val versionCode = 1
+    const val versionName = "1.0"
+
+    const val androidGradlePlugin = "3.3.0-alpha10"
+    const val androidx = "1.0.0-rc02"
+    const val androidxArch = "2.0.0-rc01"
+    const val archWork = "1.0.0-alpha08"
+    const val constraintLayout = "1.1.3"
+    const val kotlin = "1.3-M2"
+    const val mavenGradle = "2.1"
+    const val materialComponents = "1.0.0-rc01"
+}
+
+
+object Deps {
+    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
+
+    const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidx}"
+
+    const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidx}"
+
+    const val androidxCardView = "androidx.cardview:cardview:${Versions.androidx}"
+
+    const val androidxCore = "androidx.core:core:${Versions.androidx}"
+    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidx}"
+
+    const val androidxFragment = "androidx.fragment:fragment:${Versions.androidx}"
+
+    const val archLifecycleExtensions =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.androidxArch}"
+    const val archLifecycleCompiler =
+        "androidx.lifecycle:lifecycle-compiler:${Versions.androidxArch}"
+    const val archLifecycleViewModelKtx =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxArch}"
+
+    const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
+
+    const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidx}"
+
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+
+    const val materialComponents =
+        "com.google.android.material:material:${Versions.materialComponents}"
+
+    const val mavenGradlePlugin = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradle}"
+}
