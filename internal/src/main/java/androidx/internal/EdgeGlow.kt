@@ -16,10 +16,13 @@
 
 package androidx.internal
 
+import android.os.Build
 import android.view.View
 import android.widget.EdgeEffect
+import androidx.annotation.RequiresApi
 import androidx.annotation.RestrictTo
 
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 fun View.setEdgeGlowColor(color: Int, edgeGlows: Array<String>) {
     for (edgeGlow in edgeGlows) {
@@ -33,7 +36,6 @@ fun View.setEdgeGlowColor(color: Int, edgeGlows: Array<String>) {
             } catch (e: Exception) {
                 clazz = clazz.superclass
             }
-
         }
     }
 }

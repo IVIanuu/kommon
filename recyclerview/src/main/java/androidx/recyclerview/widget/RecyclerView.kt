@@ -16,10 +16,9 @@
 
 package androidx.recyclerview.widget
 
-import android.widget.EdgeEffect
-import androidx.core.view.backgroundColor
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.internal.NO_GETTER
-import androidx.internal.field
 import androidx.internal.noGetter
 import androidx.internal.setEdgeGlowColor
 
@@ -28,11 +27,13 @@ private val edgeGlows = arrayOf("mLeftGlow", "mTopGlow", "mRightGlow", "mBottomG
 var RecyclerView.edgeGlowEffectColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { setEdgeGlowColor(value, edgeGlows) }
 
 var RecyclerView.edgeGlowEffectColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { edgeGlowEffectColor = value }
 
 inline fun <reified T : RecyclerView.Adapter<*>> RecyclerView.adapter() =

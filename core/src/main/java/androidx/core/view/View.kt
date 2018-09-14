@@ -16,44 +16,9 @@
 
 package androidx.core.view
 
-import android.annotation.TargetApi
-import android.content.res.ColorStateList
-import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
-import androidx.core.content.ContextCompat
-import androidx.core.content.anim
-import androidx.core.content.bitmap
-import androidx.core.content.bool
-import androidx.core.content.booleanAttr
-import androidx.core.content.color
-import androidx.core.content.colorAttr
-import androidx.core.content.colorStateList
-import androidx.core.content.colorStateListAttr
-import androidx.core.content.dimen
-import androidx.core.content.dimenAttr
-import androidx.core.content.dimenPx
-import androidx.core.content.dimenPxAttr
-import androidx.core.content.dimenPxOffset
-import androidx.core.content.dimenPxOffsetAttr
-import androidx.core.content.drawable
-import androidx.core.content.drawableAttr
-import androidx.core.content.float
-import androidx.core.content.floatAttr
-import androidx.core.content.font
-import androidx.core.content.fontAttr
-import androidx.core.content.int
-import androidx.core.content.intArray
-import androidx.core.content.intArrayAttr
-import androidx.core.content.integerAttr
-import androidx.core.content.string
-import androidx.core.content.stringArray
-import androidx.core.content.stringAttr
-import androidx.core.content.textArray
-import androidx.core.content.textArrayAttr
-import androidx.core.content.textAttr
-import androidx.core.content.typedArray
+import androidx.annotation.RequiresApi
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
 
@@ -75,4 +40,5 @@ var View.backgroundResource: Int
 var View.elevationResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { elevation = dimenPx(value).toFloat() }

@@ -18,8 +18,10 @@ package androidx.core.widget
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.view.View
 import android.widget.CheckBox
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
 import androidx.core.view.colorAttr
 import androidx.internal.NO_GETTER
@@ -30,6 +32,7 @@ import androidx.internal.noGetter
 var CheckBox.buttonColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) {
         val disabledColor = getDisabledColor()
 
@@ -47,8 +50,8 @@ var CheckBox.buttonColor: Int
 var CheckBox.buttonColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { buttonColor = color(value) }
-
 
 private fun View.getDisabledColor(): Int {
     val primaryColor = color(android.R.attr.textColorPrimary)

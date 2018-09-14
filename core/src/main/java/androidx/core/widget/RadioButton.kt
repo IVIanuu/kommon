@@ -16,13 +16,12 @@
 
 package androidx.core.widget
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.view.View
 import android.widget.RadioButton
-import androidx.annotation.ColorInt
-import androidx.core.R
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
 import androidx.core.view.colorAttr
 import androidx.internal.NO_GETTER
@@ -33,6 +32,7 @@ import androidx.internal.noGetter
 var RadioButton.buttonColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) {
         val disabledColor = getDisabledColor()
         buttonTintList = ColorStateList(
@@ -48,6 +48,7 @@ var RadioButton.buttonColor: Int
 var RadioButton.buttonColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { buttonColor = color(value) }
 
 private fun View.getDisabledColor(): Int {

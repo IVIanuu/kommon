@@ -16,6 +16,7 @@
 
 package androidx.appcompat.widget
 
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.color
 import androidx.core.view.drawable
 import androidx.core.view.iconColor
@@ -25,7 +26,9 @@ import androidx.internal.noGetter
 var Toolbar.logoColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { logo?.setTint(value) }
+    set(value) {
+        logo?.let { DrawableCompat.setTint(it, value) }
+    }
 
 var Toolbar.logoColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
@@ -65,7 +68,9 @@ var Toolbar.navigationIconResource: Int
 var Toolbar.navigationIconColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { navigationIcon?.setTint(value) }
+    set(value) {
+        navigationIcon?.let { DrawableCompat.setTint(it, value) }
+    }
 
 var Toolbar.navigationIconColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
@@ -80,12 +85,16 @@ var Toolbar.overflowIconResource: Int
 var Toolbar.overflowIconColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { navigationIcon?.setTint(value) }
+    set(value) {
+        overflowIcon?.let { DrawableCompat.setTint(it, value) }
+    }
 
 var Toolbar.overflowIconColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { navigationIcon?.setTint(value) }
+    set(value) {
+        overflowIconColor = value
+    }
 
 var Toolbar.titleResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)

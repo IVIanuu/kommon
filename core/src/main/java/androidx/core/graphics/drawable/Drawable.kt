@@ -25,14 +25,20 @@ import androidx.internal.noGetter
 var Drawable.tint: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { setTint(value) }
+    set(value) {
+        DrawableCompat.setTint(this, value)
+    }
 
 var Drawable.tintList: ColorStateList?
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { setTintList(value) }
+    set(value) {
+        DrawableCompat.setTintList(this, value)
+    }
 
 var Drawable.tintMode: PorterDuff.Mode
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { setTintMode(value) }
+    set(value) {
+        DrawableCompat.setTintMode(this, value)
+    }

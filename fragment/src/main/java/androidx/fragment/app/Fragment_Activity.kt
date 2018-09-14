@@ -18,12 +18,13 @@ package androidx.fragment.app
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.app.hideInputMethod
 import androidx.core.app.showInputMethod
 import androidx.core.app.startActivityForResult
-import androidx.core.content.intent
 
 inline fun Fragment.hideInputMethod() {
     requireActivity().hideInputMethod()
@@ -33,6 +34,7 @@ inline fun Fragment.showInputMethod(view: View, flags: Int = 0) {
     requireActivity().showInputMethod(view, flags)
 }
 
+@RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
 inline fun <reified T : Activity> Fragment.startActivityForResult(
     requestCode: Int,
     options: Bundle? = null
@@ -40,6 +42,7 @@ inline fun <reified T : Activity> Fragment.startActivityForResult(
     requireActivity().startActivityForResult<T>(requestCode, options)
 }
 
+@RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
 inline fun <reified T : Activity> Fragment.startActivityForResult(
     requestCode: Int,
     options: Bundle? = null,

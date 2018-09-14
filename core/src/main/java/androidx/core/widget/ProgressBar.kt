@@ -17,8 +17,10 @@
 package androidx.core.widget
 
 import android.content.res.ColorStateList
+import android.graphics.PorterDuff
+import android.os.Build
 import android.widget.ProgressBar
-import androidx.core.content.ContextCompat
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
@@ -26,7 +28,13 @@ import androidx.internal.noGetter
 var ProgressBar.indeterminateColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { indeterminateTintList = ColorStateList.valueOf(value) }
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            indeterminateTintList = ColorStateList.valueOf(value)
+        } else {
+            indeterminateDrawable.setColorFilter(value, PorterDuff.Mode.SRC_IN)
+        }
+    }
 
 var ProgressBar.indeterminateColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
@@ -36,7 +44,13 @@ var ProgressBar.indeterminateColorResource: Int
 var ProgressBar.progressColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { progressTintList = ColorStateList.valueOf(value) }
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            progressTintList = ColorStateList.valueOf(value)
+        } else {
+            progressDrawable.setColorFilter(value, PorterDuff.Mode.SRC_IN)
+        }
+    }
 
 var ProgressBar.progressColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
@@ -46,9 +60,11 @@ var ProgressBar.progressColorResource: Int
 var ProgressBar.secondaryProgressColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { secondaryProgressTintList = ColorStateList.valueOf(value) }
 
 var ProgressBar.secondaryProgressColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { secondaryProgressColor = color(value) }

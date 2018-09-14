@@ -17,10 +17,13 @@
 package androidx.core.view
 
 import android.view.MenuItem
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
 
 var MenuItem.iconColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { icon?.setTint(value) }
+    set(value) {
+        icon?.let { DrawableCompat.setTint(it, value) }
+    }

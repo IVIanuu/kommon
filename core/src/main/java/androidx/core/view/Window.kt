@@ -16,27 +16,38 @@
 
 package androidx.core.view
 
-import android.annotation.TargetApi
 import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import androidx.annotation.RequiresApi
+import androidx.internal.NO_GETTER
+import androidx.internal.noGetter
+
+inline var Window.statusBarColorCompat: Int
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        statusBarColor
+    } else {
+        0
+    }
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            statusBarColor = value
+        }
+    }
 
 inline var Window.isStatusBarLight: Boolean
-    @TargetApi(Build.VERSION_CODES.M)
-    get() = isSystemUiVisibilityFlagEnabled(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-    @TargetApi(Build.VERSION_CODES.M)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.M)
     set(value) {
         setSystemUiVisibilityFlag(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR, value)
     }
 
 inline var Window.isStatusBarLightCompat: Boolean
-    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        isStatusBarLight
-    } else {
-        false
-    }
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
     set(value) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             isStatusBarLight = value
@@ -44,9 +55,9 @@ inline var Window.isStatusBarLightCompat: Boolean
     }
 
 inline var Window.isDrawUnderStatusBar: Boolean
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    get() = isSystemUiVisibilityFlagEnabled(View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     set(value) {
         setSystemUiVisibilityFlag(
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN,
@@ -54,43 +65,82 @@ inline var Window.isDrawUnderStatusBar: Boolean
         )
     }
 
+inline var Window.isDrawUnderStatusBarCompat: Boolean
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            isDrawUnderStatusBar = value
+        }
+    }
+
 inline var Window.isStatusBarTranslucent: Boolean
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    get() = hasWindowAttribute(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     set(value) {
         setWindowAttribute(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, value)
     }
 
+inline var Window.isStatusBarTranslucentCompat: Boolean
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            isStatusBarTranslucent = value
+        }
+    }
+
 inline var Window.isStatusBarTransparent: Boolean
-    get() = isDrawUnderStatusBar &&
-            hasWindowAttribute(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            && statusBarColor == Color.TRANSPARENT
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) {
         setWindowAttribute(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, value)
         isDrawUnderStatusBar = value
         if (value) statusBarColor = Color.TRANSPARENT
     }
 
+inline var Window.isStatusBarTransparentCompat: Boolean
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            isStatusBarTransparent = value
+        }
+    }
+
 inline var Window.isStatusBarHidden: Boolean
-    get() = hasWindowAttribute(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
     set(value) {
         setWindowAttribute(WindowManager.LayoutParams.FLAG_FULLSCREEN, value)
     }
 
+inline var Window.navigationBarColorCompat: Int
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        navigationBarColor
+    } else {
+        0
+    }
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            navigationBarColor = value
+        }
+    }
+
 inline var Window.isNavigationBarTranslucent: Boolean
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    get() = hasWindowAttribute(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     set(value) {
         setWindowAttribute(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, value)
     }
 
 inline var Window.isNavigationBarTransparent: Boolean
-    get() = hasWindowAttribute(
-        WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
-                or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-    )
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) {
         setWindowAttribute(
             WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
@@ -99,13 +149,9 @@ inline var Window.isNavigationBarTransparent: Boolean
     }
 
 inline var Window.isNavigationBarHidden: Boolean
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    get() = hasWindowAttribute(
-        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                View.SYSTEM_UI_FLAG_IMMERSIVE or
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-    )
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     set(value) {
         setWindowAttribute(
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -114,20 +160,29 @@ inline var Window.isNavigationBarHidden: Boolean
         )
     }
 
+inline var Window.navigationBarDividerColorCompat: Int
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        navigationBarDividerColor
+    } else {
+        0
+    }
+    set(value) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            navigationBarDividerColor = value
+        }
+    }
+
 inline var Window.isNavigationBarLight: Boolean
-    @TargetApi(Build.VERSION_CODES.O)
-    get() = isSystemUiVisibilityFlagEnabled(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)
-    @TargetApi(Build.VERSION_CODES.O)
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.O)
     set(value) {
         setSystemUiVisibilityFlag(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR, value)
     }
 
 inline var Window.isNavigationBarLightCompat: Boolean
-    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        isNavigationBarLight
-    } else {
-        false
-    }
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
     set(value) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             isNavigationBarLight = value
@@ -146,10 +201,6 @@ internal fun Window.setSystemUiVisibilityFlag(flag: Int, enabled: Boolean) {
 }
 
 @PublishedApi
-internal fun Window.isSystemUiVisibilityFlagEnabled(flag: Int) =
-    decorView.systemUiVisibility and flag == flag
-
-@PublishedApi
 internal fun Window.setWindowAttribute(flag: Int, enabled: Boolean) {
     if (enabled) {
         addFlags(flag)
@@ -157,7 +208,3 @@ internal fun Window.setWindowAttribute(flag: Int, enabled: Boolean) {
         clearFlags(flag)
     }
 }
-
-@PublishedApi
-internal fun Window.hasWindowAttribute(flag: Int) =
-    attributes.flags and flag == flag

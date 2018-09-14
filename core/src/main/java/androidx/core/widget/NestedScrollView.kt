@@ -16,6 +16,8 @@
 
 package androidx.core.widget
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
@@ -26,9 +28,11 @@ private val edgeGlows = arrayOf("mEdgeGlowLeft", "mEdgeGlowTop", "mEdgeGlowRight
 var NestedScrollView.edgeGlowEffectColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { setEdgeGlowColor(value, edgeGlows) }
 
 var NestedScrollView.edgeGlowEffectColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { edgeGlowEffectColor = color(value) }

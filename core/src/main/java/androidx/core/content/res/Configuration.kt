@@ -17,12 +17,16 @@
 package androidx.core.content.res
 
 import android.content.res.Configuration
+import android.os.Build
 import android.view.View
+import androidx.annotation.RequiresApi
 
 inline val Configuration.isRtl: Boolean
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() = layoutDirection == View.LAYOUT_DIRECTION_RTL
 
 inline val Configuration.isLtr: Boolean
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() = layoutDirection == View.LAYOUT_DIRECTION_LTR
 
 inline val Configuration.isPortrait: Boolean

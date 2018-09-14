@@ -16,40 +16,25 @@
 
 package androidx.core.content
 
-import android.annotation.TargetApi
-import android.app.Activity
 import android.app.Application
-import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.content.res.Configuration
-import android.content.res.TypedArray
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.PowerManager
 import android.util.DisplayMetrics
-import android.util.TypedValue
-import android.view.View
 import android.view.WindowManager
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.pm.isAppEnabled
 import androidx.core.content.pm.isAppInstalled
 import androidx.core.content.pm.isAppLaunchable
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.isLandscape
 import androidx.core.content.res.isPortrait
-import androidx.core.content.res.use
 import androidx.internal.BatteryUtil
 
 @PublishedApi
@@ -77,25 +62,32 @@ inline val Context.screenHeight: Int
     get() = displayMetrics.heightPixels
 
 inline val Context.realScreenWidth: Int
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() {
         systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
         return _displayMetrics.widthPixels
     }
 
 inline val Context.realScreenHeight: Int
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() {
         systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
         return _displayMetrics.heightPixels
     }
 
-inline val Context.isScreenOn
-    get() =
-        systemService<PowerManager>().isInteractive
+inline val Context.isScreenOn: Boolean
+    get() {
+        val pm = systemService<PowerManager>()
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            pm.isInteractive
+        } else {
+            pm.isScreenOn
+        }
+    }
 
 
 inline val Context.isScreenOff
-    get() =
-        !systemService<PowerManager>().isInteractive
+    get() = !isScreenOn
 
 inline val Context.isCharging: Boolean
     get() = BatteryUtil.isCharging(this)
@@ -103,16 +95,16 @@ inline val Context.isCharging: Boolean
 inline val Context.batteryLevel: Int
     get() = BatteryUtil.getBatteryLevel(this)
 
-inline fun Context.toastShort(text: CharSequence) =
+inline fun Context.toastShort(text: CharSequence): Toast =
     Toast.makeText(this, text, Toast.LENGTH_SHORT).apply { show() }
 
-inline fun Context.toastShort(textRes: Int, vararg args: Any) =
+inline fun Context.toastShort(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_SHORT).apply { show() }
 
-inline fun Context.toastLong(text: CharSequence) =
+inline fun Context.toastLong(text: CharSequence): Toast =
     Toast.makeText(this, text, Toast.LENGTH_LONG).apply { show() }
 
-inline fun Context.toastLong(textRes: Int, vararg args: Any) =
+inline fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_LONG).apply { show() }
 
 inline fun <reified T : Application> Context.app() = applicationContext as T

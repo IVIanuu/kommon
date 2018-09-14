@@ -16,8 +16,9 @@
 
 package androidx.viewpager.widget
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
-import androidx.core.widget.NestedScrollView
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
 import androidx.internal.setEdgeGlowColor
@@ -27,11 +28,13 @@ private val edgeGlows = arrayOf("mEdgeGlowLeft", "mEdgeGlowTop", "mEdgeGlowRight
 var ViewPager.edgeGlowEffectColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { setEdgeGlowColor(value, edgeGlows) }
 
 var ViewPager.edgeGlowEffectColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { edgeGlowEffectColor = color(value) }
 
 fun ViewPager.doOnPageScrolled(block: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit) =

@@ -18,7 +18,6 @@ package androidx.core.widget
 
 import android.content.res.ColorStateList
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.core.view.color
 import androidx.internal.NO_GETTER
 import androidx.internal.noGetter
@@ -26,7 +25,9 @@ import androidx.internal.noGetter
 var ImageView.imageColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { imageTintList = ColorStateList.valueOf(value) }
+    set(value) {
+        ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(value))
+    }
 
 var ImageView.imageColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)

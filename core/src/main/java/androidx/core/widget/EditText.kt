@@ -16,10 +16,10 @@
 
 package androidx.core.widget
 
-import android.R
-import android.annotation.SuppressLint
 import android.content.res.ColorStateList
+import android.os.Build
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.core.view.color
 import androidx.core.view.colorAttr
 import androidx.internal.NO_GETTER
@@ -28,16 +28,16 @@ import androidx.internal.noGetter
 var EditText.backgroundColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    @SuppressLint("RestrictedApi")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) {
         val editTextColorStateList = ColorStateList(
             arrayOf(
-                intArrayOf(-R.attr.state_enabled),
-                intArrayOf(-R.attr.state_pressed, -R.attr.state_focused),
+                intArrayOf(-android.R.attr.state_enabled),
+                intArrayOf(-android.R.attr.state_pressed, -android.R.attr.state_focused),
                 intArrayOf()
             ), intArrayOf(
-                colorAttr(R.attr.colorControlNormal),
-                colorAttr(R.attr.colorControlNormal),
+                colorAttr(android.R.attr.colorControlNormal),
+                colorAttr(android.R.attr.colorControlNormal),
                 value
             )
         )
@@ -48,4 +48,5 @@ var EditText.backgroundColor: Int
 var EditText.backgroundColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { backgroundColor = color(value) }
