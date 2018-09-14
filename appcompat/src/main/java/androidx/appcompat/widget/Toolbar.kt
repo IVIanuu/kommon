@@ -116,3 +116,8 @@ var Toolbar.subtitleResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
     set(value) { setSubtitle(value) }
+
+fun Toolbar.replaceMenu(newMenu: Int) {
+    menu.clear()
+    inflateMenu(newMenu)
+}
