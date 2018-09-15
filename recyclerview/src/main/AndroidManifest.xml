@@ -14,4 +14,4 @@
   ~ limitations under the License.
   -->
 
-<manifest package="androidx.recyclerview" />
+<manifest package="com.ivianuu.androidktx.recyclerview" />
