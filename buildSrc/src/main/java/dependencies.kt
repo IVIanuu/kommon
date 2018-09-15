@@ -15,7 +15,6 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val kotlin = "1.3-M2"
     const val mavenGradle = "2.1"
-    const val materialComponents = "1.0.0-rc01"
 }
 
 
@@ -37,8 +36,6 @@ object Deps {
         "androidx.lifecycle:lifecycle-extensions:${Versions.androidxArch}"
     const val archLifecycleCompiler =
         "androidx.lifecycle:lifecycle-compiler:${Versions.androidxArch}"
-    const val archLifecycleViewModelKtx =
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxArch}"
 
     const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
 
@@ -46,9 +43,6 @@ object Deps {
 
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-
-    const val materialComponents =
-        "com.google.android.material:material:${Versions.materialComponents}"
 
     const val mavenGradlePlugin = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradle}"
 }

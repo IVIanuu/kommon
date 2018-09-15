@@ -20,22 +20,22 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 
 fun LifecycleOwner.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit) =
-        lifecycle.doOnAny(block)
+    lifecycle.doOnAny(block)
 
 fun LifecycleOwner.doOnCreate(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnCreate(block)
+    lifecycle.doOnCreate(block)
 
 fun LifecycleOwner.doOnStart(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnStart(block)
+    lifecycle.doOnStart(block)
 
 fun LifecycleOwner.doOnResume(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnResume(block)
+    lifecycle.doOnResume(block)
 
 fun LifecycleOwner.doOnPause(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnPause(block)
+    lifecycle.doOnPause(block)
 
 fun LifecycleOwner.doOnStop(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnStop(block)
+    lifecycle.doOnStop(block)
 
 fun LifecycleOwner.doOnDestroy(block: (owner: LifecycleOwner) -> Unit) =
-        lifecycle.doOnDestroy(block)
+    lifecycle.doOnDestroy(block)

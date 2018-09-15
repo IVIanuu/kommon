@@ -16,6 +16,7 @@
 
 package com.ivianuu.androidktx.fragment.app
 
+/**
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -23,31 +24,33 @@ import com.ivianuu.androidktx.lifecycle.defaultViewModelKey
 import com.ivianuu.androidktx.lifecycle.viewModel
 
 inline fun <reified T : ViewModel> Fragment.activityViewModel(
-    factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
-    key: String = T::class.defaultViewModelKey
+factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
+key: String = T::class.defaultViewModelKey
 ) = requireActivity().viewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.bindActivityViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { activityViewModel<T>(factoryProvider(), keyProvider()) }
 
 inline fun <reified T : ViewModel> Fragment.parentViewModel(
-    factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
-    key: String = T::class.defaultViewModelKey
+factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
+key: String = T::class.defaultViewModelKey
 ) = requireParentFragment().viewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.bindParentViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { parentViewModel<T>(factoryProvider(), keyProvider()) }
 
 inline fun <reified T : ViewModel> Fragment.targetViewModel(
-    factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
-    key: String = T::class.defaultViewModelKey
+factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
+key: String = T::class.defaultViewModelKey
 ) = requireTargetFragment().viewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.bindTargetViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { targetViewModel<T>(factoryProvider(), keyProvider()) }
+
+ */

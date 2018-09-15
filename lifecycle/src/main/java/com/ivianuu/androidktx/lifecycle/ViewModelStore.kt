@@ -20,5 +20,5 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStore
 import com.ivianuu.androidktx.internal.field
 
-val ViewModelStore.viewModels: Map<String, out ViewModel>
+val ViewModelStore.viewModels: Map<String, ViewModel>
     get() = ViewModelStore::class.field("mMap")[this] as Map<String, out ViewModel>
