@@ -29,7 +29,8 @@ inline fun <reified T : ViewModel> ViewModelStoreOwner.viewModel(
     key: String = T::class.defaultViewModelKey
 ) = viewModelProvider(factory).get(key, T::class.java)
 
+// todo make crossinline when fixed
 inline fun <reified T : ViewModel> ViewModelStoreOwner.bindViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+    noinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+    noinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { viewModel<T>(factoryProvider(), keyProvider()) }

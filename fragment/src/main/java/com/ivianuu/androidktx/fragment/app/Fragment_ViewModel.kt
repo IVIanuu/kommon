@@ -27,9 +27,10 @@ inline fun <reified T : ViewModel> Fragment.activityViewModel(
     key: String = T::class.defaultViewModelKey
 ) = requireActivity().viewModel<T>(factory, key)
 
+// todo make crossinline when fixed
 inline fun <reified T : ViewModel> Fragment.bindActivityViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+    noinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+    noinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { activityViewModel<T>(factoryProvider(), keyProvider()) }
 
 inline fun <reified T : ViewModel> Fragment.parentViewModel(
@@ -37,9 +38,10 @@ inline fun <reified T : ViewModel> Fragment.parentViewModel(
     key: String = T::class.defaultViewModelKey
 ) = requireParentFragment().viewModel<T>(factory, key)
 
+// todo make crossinline when fixed
 inline fun <reified T : ViewModel> Fragment.bindParentViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+    noinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+    noinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { parentViewModel<T>(factoryProvider(), keyProvider()) }
 
 inline fun <reified T : ViewModel> Fragment.targetViewModel(
@@ -47,7 +49,8 @@ inline fun <reified T : ViewModel> Fragment.targetViewModel(
     key: String = T::class.defaultViewModelKey
 ) = requireTargetFragment().viewModel<T>(factory, key)
 
+// todo make crossinline when fixed
 inline fun <reified T : ViewModel> Fragment.bindTargetViewModel(
-    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
-    crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
+    noinline keyProvider: () -> String = { T::class.defaultViewModelKey },
+    noinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ) = lazy(LazyThreadSafetyMode.NONE) { targetViewModel<T>(factoryProvider(), keyProvider()) }

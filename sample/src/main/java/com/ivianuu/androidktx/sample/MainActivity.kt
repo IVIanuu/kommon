@@ -20,12 +20,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
+import com.ivianuu.androidktx.lifecycle.bindViewModel
 import com.ivianuu.androidktx.lifecycle.viewModel
 import com.ivianuu.androidktx.lifecycle.viewModels
 
 class MyViewModel : ViewModel()
 
 class MainActivity : AppCompatActivity() {
+
+    private val bind by bindViewModel<MyViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
