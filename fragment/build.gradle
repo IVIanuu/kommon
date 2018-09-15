@@ -37,7 +37,7 @@ dependencies {
     api Deps.androidxFragment
     api project(":core")
     api project(":internal")
-//    api project(":lifecycle")
+    api project(":lifecycle")
 }
 
 // build a jar with source files
