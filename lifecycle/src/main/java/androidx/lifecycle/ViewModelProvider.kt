@@ -21,4 +21,6 @@ import kotlin.reflect.KClass
 inline val KClass<*>.defaultViewModelKey
         get() = "android.arch.lifecycle.ViewModelProvider.DefaultKey:" + java.canonicalName
 
+inline fun <reified T : ViewModel> ViewModelProvider.get() = get(T::class.java)
+
 inline fun <reified T : ViewModel> ViewModelProvider.get(key: String) = get(key, T::class.java)

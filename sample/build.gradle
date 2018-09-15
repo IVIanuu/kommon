@@ -38,4 +38,11 @@ android {
 
 dependencies {
     implementation Deps.androidxAppCompat
+    implementation project(":appcompat")
+    implementation project(":cardview")
+    implementation project(":core")
+    implementation project(":fragment")
+    implementation project(":lifecycle")
+    implementation project(":recyclerview")
+    implementation project(":viewpager")
 }

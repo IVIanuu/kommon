@@ -41,7 +41,6 @@ android {
 dependencies {
     api Deps.archLifecycleExtensions
     kapt Deps.archLifecycleCompiler
-    api Deps.archLifecycleViewModelKtx
     api project(":core")
     api project(":internal")
 }
