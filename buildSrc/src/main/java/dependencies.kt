@@ -34,8 +34,6 @@ object Deps {
 
     const val archLifecycleExtensions =
         "androidx.lifecycle:lifecycle-extensions:${Versions.androidxArch}"
-    const val archLifecycleCompiler =
-        "androidx.lifecycle:lifecycle-compiler:${Versions.androidxArch}"
 
     const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
 

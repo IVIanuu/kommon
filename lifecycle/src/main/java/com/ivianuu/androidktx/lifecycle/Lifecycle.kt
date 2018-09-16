@@ -16,10 +16,10 @@
 
 package com.ivianuu.androidktx.lifecycle
 
+import androidx.lifecycle.GenericLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
 
 fun Lifecycle.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit) =
     addObserver(onAny = block)
@@ -88,20 +88,24 @@ fun Lifecycle.addObserver(
     return observer
 }
 
-private open class SimpleLifecycleObserver : LifecycleObserver {
+private open class SimpleLifecycleObserver : GenericLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-    open fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
+    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+        onAny(source, event)
+
         when (event) {
-            Lifecycle.Event.ON_CREATE -> onCreate(owner)
-            Lifecycle.Event.ON_START -> onStart(owner)
-            Lifecycle.Event.ON_RESUME -> onResume(owner)
-            Lifecycle.Event.ON_PAUSE -> onPause(owner)
-            Lifecycle.Event.ON_STOP -> onStop(owner)
-            Lifecycle.Event.ON_DESTROY -> onDestroy(owner)
+            Lifecycle.Event.ON_CREATE -> onCreate(source)
+            Lifecycle.Event.ON_START -> onStart(source)
+            Lifecycle.Event.ON_RESUME -> onResume(source)
+            Lifecycle.Event.ON_PAUSE -> onPause(source)
+            Lifecycle.Event.ON_STOP -> onStop(source)
+            Lifecycle.Event.ON_DESTROY -> onDestroy(source)
             Lifecycle.Event.ON_ANY -> {
             } // ignore
         }
+    }
+
+    open fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
     }
 
     open fun onCreate(owner: LifecycleOwner) {
