@@ -17,11 +17,24 @@
 package com.ivianuu.androidktx.core.widget
 
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.Icon
+import android.net.Uri
+import android.os.Build
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.core.widget.ImageViewCompat
 import com.ivianuu.androidktx.core.view.color
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.noGetter
+
+var ImageView.imageBitmap: Bitmap?
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        setImageBitmap(value)
+    }
 
 var ImageView.imageColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
@@ -33,4 +46,36 @@ var ImageView.imageColor: Int
 var ImageView.imageColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
-    set(value) { imageColor = color(value) }
+    set(value) {
+        imageColor = color(value)
+    }
+
+var ImageView.imageDrawable: Drawable?
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.M)
+    set(value) {
+        setImageDrawable(value)
+    }
+
+var ImageView.imageIcon: Icon?
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.M)
+    set(value) {
+        setImageIcon(value)
+    }
+
+var ImageView.imageResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        setImageResource(value)
+    }
+
+var ImageView.imageUri: Uri?
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        setImageURI(value)
+    }
