@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.ivianuu.androidktx.core.content.batteryLevel
 import com.ivianuu.androidktx.core.content.componentName
 import com.ivianuu.androidktx.core.content.configuration
+import com.ivianuu.androidktx.core.content.defaultSharedPreferences
 import com.ivianuu.androidktx.core.content.displayMetrics
 import com.ivianuu.androidktx.core.content.dp
 import com.ivianuu.androidktx.core.content.hasPermissions
@@ -46,6 +47,9 @@ inline val Fragment.configuration
 
 inline val Fragment.displayMetrics
     get() = requireContext().displayMetrics
+
+inline val Fragment.defaultSharedPreferences
+    get() = requireContext().defaultSharedPreferences
 
 inline val Fragment.rotation
     get() = requireContext().rotation

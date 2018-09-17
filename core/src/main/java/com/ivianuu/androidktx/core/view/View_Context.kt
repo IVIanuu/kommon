@@ -20,6 +20,7 @@ import android.view.View
 import com.ivianuu.androidktx.core.content.batteryLevel
 import com.ivianuu.androidktx.core.content.componentName
 import com.ivianuu.androidktx.core.content.configuration
+import com.ivianuu.androidktx.core.content.defaultSharedPreferences
 import com.ivianuu.androidktx.core.content.displayMetrics
 import com.ivianuu.androidktx.core.content.dp
 import com.ivianuu.androidktx.core.content.hasPermissions
@@ -46,6 +47,9 @@ inline val View.configuration
 
 inline val View.displayMetrics
     get() = context.displayMetrics
+
+inline val View.defaultSharedPreferences
+    get() = context.defaultSharedPreferences
 
 inline val View.rotation
     get() = context.rotation

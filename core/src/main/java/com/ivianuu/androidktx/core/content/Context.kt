@@ -22,6 +22,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Build
@@ -43,6 +44,9 @@ internal val _displayMetrics = DisplayMetrics()
 
 inline val Context.configuration: Configuration
     get() = resources.configuration
+
+inline val Context.defaultSharedPreferences: SharedPreferences
+    get() = getSharedPreferences(packageName + "_preferences", Context.MODE_PRIVATE)
 
 inline val Context.displayMetrics: DisplayMetrics
     get() = resources.displayMetrics
