@@ -22,6 +22,7 @@ import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.DrawableCompat
 import com.ivianuu.androidktx.core.view.color
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.noGetter
 
@@ -44,6 +45,14 @@ var SeekBar.progressColorResource: Int
     get() = noGetter()
     set(value) { progressColor = color(value) }
 
+var SeekBar.progressTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        progressTintList = colorStateList(value)
+    }
+
 var SeekBar.thumbColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
@@ -64,6 +73,14 @@ var SeekBar.thumbColorResource: Int
     get() = noGetter()
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     set(value) { thumbColor = color(value) }
+
+var SeekBar.thumbTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        thumbTintList = colorStateList(value)
+    }
 
 fun SeekBar.doOnProgressChanged(block: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit) =
     setOnSeekBarChangeListener(onProgressChanged = block)

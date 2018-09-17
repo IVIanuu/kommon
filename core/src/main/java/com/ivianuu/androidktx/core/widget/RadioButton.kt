@@ -24,6 +24,7 @@ import android.widget.RadioButton
 import androidx.annotation.RequiresApi
 import com.ivianuu.androidktx.core.view.color
 import com.ivianuu.androidktx.core.view.colorAttr
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.adjustAlpha
 import com.ivianuu.androidktx.internal.isDark
@@ -50,6 +51,14 @@ var RadioButton.buttonColorResource: Int
     get() = noGetter()
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { buttonColor = color(value) }
+
+var RadioButton.buttonTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        buttonTintList = colorStateList(value)
+    }
 
 private fun View.getDisabledColor(): Int {
     val primaryColor = color(android.R.attr.textColorPrimary)

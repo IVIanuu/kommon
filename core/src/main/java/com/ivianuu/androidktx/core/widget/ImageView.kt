@@ -26,6 +26,7 @@ import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.core.widget.ImageViewCompat
 import com.ivianuu.androidktx.core.view.color
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.noGetter
 
@@ -71,6 +72,14 @@ var ImageView.imageResource: Int
     get() = noGetter()
     set(value) {
         setImageResource(value)
+    }
+
+var ImageView.imageTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        imageTintList = colorStateList(value)
     }
 
 var ImageView.imageUri: Uri?

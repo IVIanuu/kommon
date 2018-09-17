@@ -16,11 +16,13 @@
 
 package com.ivianuu.androidktx.appcompat.widget
 
+import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import androidx.appcompat.R
 import androidx.appcompat.widget.SwitchCompat
 import com.ivianuu.androidktx.core.view.color
 import com.ivianuu.androidktx.core.view.colorAttr
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.adjustAlpha
 import com.ivianuu.androidktx.internal.noGetter
@@ -28,6 +30,7 @@ import com.ivianuu.androidktx.internal.noGetter
 var SwitchCompat.thumbColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
+    @SuppressLint("PrivateResource")
     set(value) {
         thumbTintList = ColorStateList(
             arrayOf(
@@ -41,6 +44,13 @@ var SwitchCompat.thumbColorResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
     set(value) { thumbColor = color(value) }
+
+var SwitchCompat.thumbTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        thumbTintList = colorStateList(value)
+    }
 
 var SwitchCompat.trackColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)

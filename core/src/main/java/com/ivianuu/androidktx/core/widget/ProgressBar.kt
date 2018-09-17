@@ -22,6 +22,7 @@ import android.os.Build
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import com.ivianuu.androidktx.core.view.color
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.noGetter
 
@@ -41,6 +42,14 @@ var ProgressBar.indeterminateColorResource: Int
     get() = noGetter()
     set(value) { indeterminateColor = color(value) }
 
+var ProgressBar.indeterminateTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        indeterminateTintList = colorStateList(value)
+    }
+
 var ProgressBar.progressColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
@@ -57,6 +66,14 @@ var ProgressBar.progressColorResource: Int
     get() = noGetter()
     set(value) { progressColor = color(value) }
 
+var ProgressBar.progressTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        progressTintList = colorStateList(value)
+    }
+
 var ProgressBar.secondaryProgressColor: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
@@ -68,3 +85,11 @@ var ProgressBar.secondaryProgressColorResource: Int
     get() = noGetter()
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { secondaryProgressColor = color(value) }
+
+var ProgressBar.secondaryProgressTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        secondaryProgressTintList = colorStateList(value)
+    }
