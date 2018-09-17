@@ -27,11 +27,8 @@ val intentInitStub: Intent.() -> Unit = {}
 
 inline fun <reified T> Context.intent() = intent<T>(intentInitStub)
 
-inline fun <reified T> Context.intent(init: Intent.() -> Unit): Intent {
-    val intent = Intent(this, T::class.java)
-    init.invoke(intent)
-    return intent
-}
+inline fun <reified T> Context.intent(init: Intent.() -> Unit) =
+    Intent(this, T::class.java).apply(init)
 
 inline fun <reified T : Activity> Context.startActivity() {
     startActivity(intent<T>())
