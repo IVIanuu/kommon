@@ -32,6 +32,14 @@ var View.backgroundColorResource: Int
     get() = noGetter()
     set(value) { backgroundColor = color(value) }
 
+var View.backgroundTintListResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    set(value) {
+        backgroundTintList = colorStateList(value)
+    }
+
 var View.backgroundResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
