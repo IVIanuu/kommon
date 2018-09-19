@@ -18,6 +18,7 @@ package com.ivianuu.androidktx.cardview.widget
 
 import androidx.cardview.widget.CardView
 import com.ivianuu.androidktx.core.view.color
+import com.ivianuu.androidktx.core.view.colorStateList
 import com.ivianuu.androidktx.core.view.dimenPx
 import com.ivianuu.androidktx.internal.NO_GETTER
 import com.ivianuu.androidktx.internal.noGetter
@@ -33,6 +34,13 @@ var CardView.cardBackgroundColorIntResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
     get() = noGetter()
     set(value) { cardBackgroundColorInt = color(value) }
+
+var CardView.cardBackgroundColorResource: Int
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) {
+        setCardBackgroundColor(colorStateList(value))
+    }
 
 var CardView.cardElevationResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
