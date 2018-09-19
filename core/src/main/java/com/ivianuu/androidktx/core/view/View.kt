@@ -84,3 +84,28 @@ var View.elevationResource: Int
     get() = noGetter()
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     set(value) { elevation = dimenPx(value).toFloat() }
+
+fun View.doOnAttachedToWindow(block: (v: View) -> Unit) =
+    addOnAttachStateChangeListener(onViewAttachedToWindow = block)
+
+fun View.doOnDetachedFromWindow(block: (v: View) -> Unit) =
+    addOnAttachStateChangeListener(onViewDetachedFromWindow = block)
+
+fun View.addOnAttachStateChangeListener(
+    onViewAttachedToWindow: ((v: View) -> Unit)? = null,
+    onViewDetachedFromWindow: ((v: View) -> Unit)? = null
+): View.OnAttachStateChangeListener {
+    val listener = object : View.OnAttachStateChangeListener {
+        override fun onViewAttachedToWindow(v: View) {
+            onViewAttachedToWindow?.invoke(v)
+        }
+
+        override fun onViewDetachedFromWindow(v: View) {
+            onViewDetachedFromWindow?.invoke(v)
+        }
+    }
+
+    addOnAttachStateChangeListener(listener)
+
+    return listener
+}
