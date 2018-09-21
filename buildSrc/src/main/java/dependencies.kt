@@ -13,10 +13,9 @@ object Versions {
     const val androidxArch = "2.0.0-rc01"
     const val archWork = "1.0.0-alpha08"
     const val constraintLayout = "1.1.3"
-    const val kotlin = "1.3-M2"
+    const val kotlin = "1.3.0-rc-57"
     const val mavenGradle = "2.1"
 }
-
 
 object Deps {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
