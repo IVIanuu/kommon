@@ -18,10 +18,8 @@ package com.ivianuu.androidktx.fragment.app
 
 import android.app.Activity
 import android.app.Application
-import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.ivianuu.androidktx.core.content.app
-import com.ivianuu.androidktx.core.content.startForegroundServiceCompat
 
 inline fun <reified T : Activity> Fragment.activity() = requireActivity() as T
 
@@ -53,7 +51,3 @@ inline fun <reified T : Fragment> Fragment.targetFragmentOrNull() = try {
 }
 
 inline fun <reified T : Application> Fragment.app() = requireContext().app<T>()
-
-inline fun Fragment.startForegroundServiceCompat(intent: Intent) {
-    requireContext().startForegroundServiceCompat(intent)
-}
