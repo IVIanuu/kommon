@@ -22,7 +22,6 @@ object Deps {
 
     const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidx}"
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidx}"
-    const val androidxCardView = "androidx.cardview:cardview:${Versions.androidx}"
     const val androidxCore = "androidx.core:core:${Versions.androidx}"
     const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidx}"
     const val androidxFragment = "androidx.fragment:fragment:${Versions.androidx}"

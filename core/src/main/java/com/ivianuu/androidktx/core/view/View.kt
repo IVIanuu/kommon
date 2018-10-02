@@ -16,74 +16,7 @@
 
 package com.ivianuu.androidktx.core.view
 
-import android.content.res.ColorStateList
-import android.os.Build
 import android.view.View
-import androidx.annotation.RequiresApi
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
-
-var View.backgroundColor: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) { setBackgroundColor(value) }
-
-var View.backgroundColorResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) { backgroundColor = color(value) }
-
-var View.backgroundTintListResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) {
-        backgroundTintList = colorStateList(value)
-    }
-
-var View.backgroundResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) {
-        setBackgroundResource(value)
-    }
-
-var View.foregroundResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.M)
-    set(value) {
-        foreground = drawable(value)
-    }
-
-var View.foregroundColor: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.M)
-    set(value) {
-        foregroundTintList = ColorStateList.valueOf(value)
-    }
-
-var View.foregroundColorResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) {
-        foregroundColor = color(value)
-    }
-
-var View.foregroundTintListResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.M)
-    set(value) {
-        foregroundTintList = colorStateList(value)
-    }
-
-var View.elevationResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) { elevation = dimenPx(value).toFloat() }
 
 fun View.doOnAttachedToWindow(block: (v: View) -> Unit) =
     addOnAttachStateChangeListener(onViewAttachedToWindow = block)

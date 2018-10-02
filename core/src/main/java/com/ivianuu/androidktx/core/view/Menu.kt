@@ -19,13 +19,6 @@ package com.ivianuu.androidktx.core.view
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.iterator
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
-
-var Menu.iconColor: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) { items.forEach { it.iconColor = value } }
 
 val Menu.items: Sequence<MenuItem>
     get() = object : Sequence<MenuItem> {

@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':sample', ':core', ':internal', ':recyclerview', ':cardview', ':appcompat', ':viewpager', ':fragment', ':lifecycle'
+include ':sample', ':core', ':internal', ':recyclerview', ':appcompat', ':viewpager', ':fragment', ':lifecycle'

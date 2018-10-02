@@ -16,28 +16,9 @@
 
 package com.ivianuu.androidktx.recyclerview.widget
 
-import android.os.Build
 import android.view.MotionEvent
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
-import com.ivianuu.androidktx.internal.setEdgeGlowColor
-
-private val edgeGlows = arrayOf("mLeftGlow", "mTopGlow", "mRightGlow", "mBottomGlow")
-
-var RecyclerView.edgeGlowEffectColor: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) { setEdgeGlowColor(value, edgeGlows) }
-
-var RecyclerView.edgeGlowEffectColorResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) { edgeGlowEffectColor = value }
 
 inline fun <reified T : RecyclerView.Adapter<*>> RecyclerView.adapter() =
     adapter as T

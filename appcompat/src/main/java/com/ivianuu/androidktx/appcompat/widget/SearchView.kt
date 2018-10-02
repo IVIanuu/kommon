@@ -17,14 +17,6 @@
 package com.ivianuu.androidktx.appcompat.widget
 
 import androidx.appcompat.widget.SearchView
-import com.ivianuu.androidktx.core.view.string
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
-
-var SearchView.queryHintResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) { queryHint = string(value) }
 
 fun SearchView.doOnQueryTextChange(block: (newText: String) -> Boolean) =
     setOnQueryTextListener(onQueryTextChange = block)

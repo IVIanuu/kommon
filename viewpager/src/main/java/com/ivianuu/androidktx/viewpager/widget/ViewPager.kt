@@ -16,27 +16,7 @@
 
 package com.ivianuu.androidktx.viewpager.widget
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
-import com.ivianuu.androidktx.core.view.color
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
-import com.ivianuu.androidktx.internal.setEdgeGlowColor
-
-private val edgeGlows = arrayOf("mEdgeGlowLeft", "mEdgeGlowTop", "mEdgeGlowRight", "mEdgeGlowBottom")
-
-var ViewPager.edgeGlowEffectColor: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) { setEdgeGlowColor(value, edgeGlows) }
-
-var ViewPager.edgeGlowEffectColorResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    set(value) { edgeGlowEffectColor = color(value) }
 
 fun ViewPager.doOnPageScrolled(block: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit) =
     addOnPageChangeListener(onPageScrolled = block)

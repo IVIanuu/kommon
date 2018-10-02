@@ -21,30 +21,24 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import com.ivianuu.androidktx.core.view.string
-import com.ivianuu.androidktx.internal.NO_GETTER
-import com.ivianuu.androidktx.internal.noGetter
 
-var TextView.textFuture: CharSequence?
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) {
-        if (value != null) {
-            if (this is AppCompatTextView) {
-                val precomputedText = PrecomputedTextCompat
-                    .getTextFuture(value, TextViewCompat.getTextMetricsParams(this), null)
-                setTextFuture(precomputedText)
-            } else {
-                val precomputedText = PrecomputedTextCompat.create(
-                    value, TextViewCompat.getTextMetricsParams(this)
-                )
-                TextViewCompat.setPrecomputedText(this, precomputedText)
-            }
+fun TextView.setTextFuture(text: CharSequence?) {
+    if (text != null) {
+        if (this is AppCompatTextView) {
+            val precomputedText = PrecomputedTextCompat
+                .getTextFuture(text, TextViewCompat.getTextMetricsParams(this), null)
+            setTextFuture(precomputedText)
         } else {
-
+            val precomputedText = PrecomputedTextCompat.create(
+                text, TextViewCompat.getTextMetricsParams(this)
+            )
+            TextViewCompat.setPrecomputedText(this, precomputedText)
         }
+    } else {
+        this.text = null
     }
+}
 
-var TextView.textFutureResource: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
-    get() = noGetter()
-    set(value) { textFuture = string(value) }
+fun TextView.setTextFuture(textRes: Int) {
+    setTextFuture(string(textRes))
+}
