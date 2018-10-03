@@ -100,26 +100,26 @@ inline val Context.isCharging: Boolean
 inline val Context.batteryLevel: Int
     get() = BatteryUtil.getBatteryLevel(this)
 
-inline fun Context.toastShort(text: CharSequence): Toast =
+fun Context.toastShort(text: CharSequence): Toast =
     Toast.makeText(this, text, Toast.LENGTH_SHORT).apply { show() }
 
-inline fun Context.toastShort(textRes: Int, vararg args: Any): Toast =
+fun Context.toastShort(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_SHORT).apply { show() }
 
-inline fun Context.toastLong(text: CharSequence): Toast =
+fun Context.toastLong(text: CharSequence): Toast =
     Toast.makeText(this, text, Toast.LENGTH_LONG).apply { show() }
 
-inline fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
+fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_LONG).apply { show() }
 
 inline fun <reified T : Application> Context.app() = applicationContext as T
 
 inline fun <reified T> Context.componentName() = ComponentName(this, T::class.java)
 
-inline fun Context.componentName(className: String) =
+fun Context.componentName(className: String) =
     ComponentName(this, className)
 
-inline fun Context.startForegroundServiceCompat(intent: Intent) {
+fun Context.startForegroundServiceCompat(intent: Intent) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         startForegroundService(intent)
     } else {
@@ -153,7 +153,7 @@ fun Context.hasPermissions(vararg permissions: String): Boolean {
     }
 }
 
-inline fun Context.isAppInstalled(packageName: String) =
+fun Context.isAppInstalled(packageName: String) =
     packageManager.isAppInstalled(packageName)
 
 fun Context.isAppLaunchable(packageName: String) =
@@ -162,4 +162,4 @@ fun Context.isAppLaunchable(packageName: String) =
 fun Context.isAppEnabled(packageName: String) =
     packageManager.isAppEnabled(packageName)
 
-inline fun Context.dp(dp: Int) = dp * displayMetrics.density
+fun Context.dp(dp: Int) = dp * displayMetrics.density

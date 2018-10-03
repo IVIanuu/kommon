@@ -26,14 +26,14 @@ import androidx.annotation.RequiresApi
 import com.ivianuu.androidktx.core.content.intent
 import com.ivianuu.androidktx.core.content.systemService
 
-inline fun Activity.hideInputMethod() {
+fun Activity.hideInputMethod() {
     systemService<InputMethodManager>().hideSoftInputFromWindow(
         window.peekDecorView().windowToken,
         0
     )
 }
 
-inline fun Activity.showInputMethod(view: View, flags: Int = 0) {
+fun Activity.showInputMethod(view: View, flags: Int = 0) {
     systemService<InputMethodManager>().showSoftInput(view, flags)
 }
 

@@ -35,40 +35,40 @@ import com.ivianuu.androidktx.core.content.stringArray
 import com.ivianuu.androidktx.core.content.textArray
 import com.ivianuu.androidktx.core.content.typedArray
 
-inline fun View.anim(resId: Int) = context.anim(resId)
+fun View.anim(resId: Int) = context.anim(resId)
 
-inline fun View.intArray(resId: Int) = context.intArray(resId)
+fun View.intArray(resId: Int) = context.intArray(resId)
 
-inline fun View.stringArray(resId: Int) = context.stringArray(resId)
+fun View.stringArray(resId: Int) = context.stringArray(resId)
 
-inline fun View.textArray(resId: Int) = context.textArray(resId)
+fun View.textArray(resId: Int) = context.textArray(resId)
 
-inline fun View.typedArray(resId: Int) = context.typedArray(resId)
+fun View.typedArray(resId: Int) = context.typedArray(resId)
 
-inline fun View.bool(resId: Int) = context.bool(resId)
+fun View.bool(resId: Int) = context.bool(resId)
 
-inline fun View.dimen(resId: Int) = context.dimen(resId)
+fun View.dimen(resId: Int) = context.dimen(resId)
 
-inline fun View.dimenPx(resId: Int) = context.dimenPx(resId)
+fun View.dimenPx(resId: Int) = context.dimenPx(resId)
 
-inline fun View.dimenPxOffset(resId: Int) = context.dimenPxOffset(resId)
+fun View.dimenPxOffset(resId: Int) = context.dimenPxOffset(resId)
 
-inline fun View.float(resId: Int) = context.float(resId)
+fun View.float(resId: Int) = context.float(resId)
 
-inline fun View.int(resId: Int): Int = context.int(resId)
+fun View.int(resId: Int): Int = context.int(resId)
 
-inline fun View.bitmap(resId: Int) = context.bitmap(resId)
+fun View.bitmap(resId: Int) = context.bitmap(resId)
 
-inline fun View.color(resId: Int) = context.color(resId)
+fun View.color(resId: Int) = context.color(resId)
 
-inline fun View.colorStateList(resId: Int) =
+fun View.colorStateList(resId: Int) =
     context.colorStateList(resId)
 
-inline fun View.drawable(resId: Int) = context.drawable(resId)
+fun View.drawable(resId: Int) = context.drawable(resId)
 
-inline fun View.font(resId: Int) = context.font(resId)
+fun View.font(resId: Int) = context.font(resId)
 
-inline fun View.string(resId: Int) = context.string(resId)
+fun View.string(resId: Int) = context.string(resId)
 
-inline fun View.string(resId: Int, vararg args: Any) =
+fun View.string(resId: Int, vararg args: Any) =
     context.string(resId, *args)

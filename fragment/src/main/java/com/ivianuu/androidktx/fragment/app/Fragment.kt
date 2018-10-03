@@ -23,16 +23,16 @@ import com.ivianuu.androidktx.core.content.app
 
 inline fun <reified T : Activity> Fragment.activity() = requireActivity() as T
 
-inline fun Fragment.requireArgs() =
+fun Fragment.requireArgs() =
     arguments ?: throw IllegalStateException("no arguments provided")
 
-inline fun Fragment.requireParentFragment() =
+fun Fragment.requireParentFragment() =
     parentFragment ?: throw IllegalStateException("parent fragment is null")
 
-inline fun Fragment.requireTargetFragment() =
+fun Fragment.requireTargetFragment() =
     targetFragment ?: throw IllegalStateException("target fragment is null")
 
-inline fun Fragment.requireView() = view ?: throw IllegalStateException("view is null")
+fun Fragment.requireView() = view ?: throw IllegalStateException("view is null")
 
 inline fun <reified T : Fragment> Fragment.parentFragment() = requireParentFragment() as T
 

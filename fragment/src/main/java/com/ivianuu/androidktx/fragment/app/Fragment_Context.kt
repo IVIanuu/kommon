@@ -87,28 +87,28 @@ inline val Fragment.batteryLevel: Int
 inline fun <reified T> Fragment.componentName() =
     requireContext().componentName<T>()
 
-inline fun Fragment.componentName(className: String) =
+fun Fragment.componentName(className: String) =
     requireContext().componentName(className)
 
 inline fun <reified T> Fragment.systemService() = requireContext().systemService<T>()
 
 inline fun <reified T> Fragment.systemServiceOrNull() = requireContext().systemServiceOrNull<T>()
 
-inline fun Fragment.toastShort(text: CharSequence) = requireContext().toastShort(text)
+fun Fragment.toastShort(text: CharSequence) = requireContext().toastShort(text)
 
-inline fun Fragment.toastShort(textRes: Int, vararg args: Any) =
+fun Fragment.toastShort(textRes: Int, vararg args: Any) =
     requireContext().toastShort(textRes, *args)
 
-inline fun Fragment.toastLong(text: CharSequence) =
+fun Fragment.toastLong(text: CharSequence) =
     requireContext().toastLong(text)
 
-inline fun Fragment.toastLong(textRes: Int, vararg args: Any) =
+fun Fragment.toastLong(textRes: Int, vararg args: Any) =
     requireContext().toastLong(textRes, *args)
 
 fun Fragment.hasPermissions(vararg permissions: String) =
     requireContext().hasPermissions(*permissions)
 
-inline fun Fragment.isAppInstalled(packageName: String) =
+fun Fragment.isAppInstalled(packageName: String) =
     requireContext().isAppInstalled(packageName)
 
 fun Fragment.isAppLaunchable(packageName: String) =
@@ -117,4 +117,4 @@ fun Fragment.isAppLaunchable(packageName: String) =
 fun Fragment.isAppEnabled(packageName: String) =
     requireContext().isAppEnabled(packageName)
 
-inline fun Fragment.dp(dp: Int) = requireContext().dp(dp)
+fun Fragment.dp(dp: Int) = requireContext().dp(dp)

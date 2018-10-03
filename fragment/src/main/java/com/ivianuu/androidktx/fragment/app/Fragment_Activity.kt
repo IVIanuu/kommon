@@ -27,11 +27,11 @@ import com.ivianuu.androidktx.core.app.hideInputMethod
 import com.ivianuu.androidktx.core.app.showInputMethod
 import com.ivianuu.androidktx.core.app.startActivityForResult
 
-inline fun Fragment.hideInputMethod() {
+fun Fragment.hideInputMethod() {
     requireActivity().hideInputMethod()
 }
 
-inline fun Fragment.showInputMethod(view: View, flags: Int = 0) {
+fun Fragment.showInputMethod(view: View, flags: Int = 0) {
     requireActivity().showInputMethod(view, flags)
 }
 

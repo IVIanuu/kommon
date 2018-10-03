@@ -75,7 +75,6 @@ inline val View.realScreenHeight: Int
 inline val View.isScreenOn
     get() = context.isScreenOn
 
-
 inline val View.isScreenOff
     get() = context.isScreenOff
 
@@ -88,28 +87,28 @@ inline val View.batteryLevel: Int
 inline fun <reified T> View.componentName() =
     context.componentName<T>()
 
-inline fun View.componentName(className: String) =
+fun View.componentName(className: String) =
     context.componentName(className)
 
 inline fun <reified T> View.systemService() = context.systemService<T>()
 
 inline fun <reified T> View.systemServiceOrNull() = context.systemServiceOrNull<T>()
 
-inline fun View.toastShort(text: CharSequence) = context.toastShort(text)
+fun View.toastShort(text: CharSequence) = context.toastShort(text)
 
-inline fun View.toastShort(textRes: Int, vararg args: Any) =
+fun View.toastShort(textRes: Int, vararg args: Any) =
     context.toastShort(textRes, *args)
 
-inline fun View.toastLong(text: CharSequence) =
+fun View.toastLong(text: CharSequence) =
     context.toastLong(text)
 
-inline fun View.toastLong(textRes: Int, vararg args: Any) =
+fun View.toastLong(textRes: Int, vararg args: Any) =
     context.toastLong(textRes, *args)
 
 fun View.hasPermissions(vararg permissions: String) =
     context.hasPermissions(*permissions)
 
-inline fun View.isAppInstalled(packageName: String) =
+fun View.isAppInstalled(packageName: String) =
     context.isAppInstalled(packageName)
 
 fun View.isAppLaunchable(packageName: String) =
@@ -118,4 +117,4 @@ fun View.isAppLaunchable(packageName: String) =
 fun View.isAppEnabled(packageName: String) =
     context.isAppEnabled(packageName)
 
-inline fun View.dp(dp: Int) = context.dp(dp)
+fun View.dp(dp: Int) = context.dp(dp)

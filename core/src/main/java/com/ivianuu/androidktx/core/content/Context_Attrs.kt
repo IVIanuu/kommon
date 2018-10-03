@@ -29,49 +29,49 @@ import androidx.core.content.res.use
 @PublishedApi
 internal val typedValue = TypedValue()
 
-inline fun Context.booleanAttr(attr: Int, defaultValue: Boolean = false): Boolean =
+fun Context.booleanAttr(attr: Int, defaultValue: Boolean = false): Boolean =
     withTypedArray(attr) { it.getBoolean(0, defaultValue) }
 
-inline fun Context.colorAttr(attr: Int, defaultValue: Int = 0): Int =
+fun Context.colorAttr(attr: Int, defaultValue: Int = 0): Int =
     withTypedArray(attr) { it.getColor(0, defaultValue) }
 
-inline fun Context.colorStateListAttr(
+fun Context.colorStateListAttr(
     attr: Int,
     defaultValue: ColorStateList? = null
 ): ColorStateList? = withTypedArray(attr) { it.getColorStateList(0) ?: defaultValue }
 
-inline fun Context.dimenAttr(attr: Int, defaultValue: Float = 0f): Float =
+fun Context.dimenAttr(attr: Int, defaultValue: Float = 0f): Float =
     withTypedArray(attr) { it.getDimension(0, defaultValue) }
 
-inline fun Context.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0): Int =
+fun Context.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0): Int =
     withTypedArray(attr) { it.getDimensionPixelOffset(0, defaultValue) }
 
-inline fun Context.dimenPxAttr(attr: Int, defaultValue: Int = 0): Int =
+fun Context.dimenPxAttr(attr: Int, defaultValue: Int = 0): Int =
     withTypedArray(attr) { it.getDimensionPixelSize(0, defaultValue) }
 
-inline fun Context.drawableAttr(attr: Int, defaultValue: Drawable? = null): Drawable? =
+fun Context.drawableAttr(attr: Int, defaultValue: Drawable? = null): Drawable? =
     withTypedArray(attr) { it.getDrawable(0) ?: defaultValue }
 
-inline fun Context.floatAttr(attr: Int, defaultValue: Float = 0f): Float =
+fun Context.floatAttr(attr: Int, defaultValue: Float = 0f): Float =
     withTypedArray(attr) { it.getFloat(0, defaultValue) }
 
 @TargetApi(Build.VERSION_CODES.O)
-inline fun Context.fontAttr(attr: Int, defaultValue: Typeface? = null): Typeface? =
+fun Context.fontAttr(attr: Int, defaultValue: Typeface? = null): Typeface? =
     withTypedArray(attr) { it.getFont(0) ?: defaultValue }
 
-inline fun Context.intArrayAttr(attr: Int, defaultValue: Int = 0): Int =
+fun Context.intArrayAttr(attr: Int, defaultValue: Int = 0): Int =
     withTypedArray(attr) { it.getInt(0, defaultValue) }
 
-inline fun Context.integerAttr(attr: Int, defaultValue: Int = 0): Int =
+fun Context.integerAttr(attr: Int, defaultValue: Int = 0): Int =
     withTypedArray(attr) { it.getInteger(0, defaultValue) }
 
-inline fun Context.stringAttr(attr: Int, defaultValue: String? = null): String? =
+fun Context.stringAttr(attr: Int, defaultValue: String? = null): String? =
     withTypedArray(attr) { it.getString(0) ?: defaultValue }
 
-inline fun Context.textAttr(attr: Int, defaultValue: CharSequence? = null): CharSequence? =
+fun Context.textAttr(attr: Int, defaultValue: CharSequence? = null): CharSequence? =
     withTypedArray(attr) { it.getText(0) ?: defaultValue }
 
-inline fun Context.textArrayAttr(
+fun Context.textArrayAttr(
     attr: Int,
     defaultValue: Array<CharSequence>? = null
 ): Array<CharSequence>? = withTypedArray(attr) { it.getTextArray(0) ?: defaultValue }

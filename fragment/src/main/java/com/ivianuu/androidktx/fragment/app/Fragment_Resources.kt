@@ -35,40 +35,40 @@ import com.ivianuu.androidktx.core.content.stringArray
 import com.ivianuu.androidktx.core.content.textArray
 import com.ivianuu.androidktx.core.content.typedArray
 
-inline fun Fragment.anim(resId: Int) = requireContext().anim(resId)
+fun Fragment.anim(resId: Int) = requireContext().anim(resId)
 
-inline fun Fragment.intArray(resId: Int) = requireContext().intArray(resId)
+fun Fragment.intArray(resId: Int) = requireContext().intArray(resId)
 
-inline fun Fragment.stringArray(resId: Int) = requireContext().stringArray(resId)
+fun Fragment.stringArray(resId: Int) = requireContext().stringArray(resId)
 
-inline fun Fragment.textArray(resId: Int) = requireContext().textArray(resId)
+fun Fragment.textArray(resId: Int) = requireContext().textArray(resId)
 
-inline fun Fragment.typedArray(resId: Int) = requireContext().typedArray(resId)
+fun Fragment.typedArray(resId: Int) = requireContext().typedArray(resId)
 
-inline fun Fragment.bool(resId: Int) = requireContext().bool(resId)
+fun Fragment.bool(resId: Int) = requireContext().bool(resId)
 
-inline fun Fragment.dimen(resId: Int) = requireContext().dimen(resId)
+fun Fragment.dimen(resId: Int) = requireContext().dimen(resId)
 
-inline fun Fragment.dimenPx(resId: Int) = requireContext().dimenPx(resId)
+fun Fragment.dimenPx(resId: Int) = requireContext().dimenPx(resId)
 
-inline fun Fragment.dimenPxOffset(resId: Int) = requireContext().dimenPxOffset(resId)
+fun Fragment.dimenPxOffset(resId: Int) = requireContext().dimenPxOffset(resId)
 
-inline fun Fragment.float(resId: Int) = requireContext().float(resId)
+fun Fragment.float(resId: Int) = requireContext().float(resId)
 
-inline fun Fragment.int(resId: Int): Int = requireContext().int(resId)
+fun Fragment.int(resId: Int): Int = requireContext().int(resId)
 
-inline fun Fragment.bitmap(resId: Int) = requireContext().bitmap(resId)
+fun Fragment.bitmap(resId: Int) = requireContext().bitmap(resId)
 
-inline fun Fragment.color(resId: Int) = requireContext().color(resId)
+fun Fragment.color(resId: Int) = requireContext().color(resId)
 
-inline fun Fragment.colorStateList(resId: Int) =
+fun Fragment.colorStateList(resId: Int) =
     requireContext().colorStateList(resId)
 
-inline fun Fragment.drawable(resId: Int) = requireContext().drawable(resId)
+fun Fragment.drawable(resId: Int) = requireContext().drawable(resId)
 
-inline fun Fragment.font(resId: Int) = requireContext().font(resId)
+fun Fragment.font(resId: Int) = requireContext().font(resId)
 
-inline fun Fragment.string(resId: Int) = requireContext().string(resId)
+fun Fragment.string(resId: Int) = requireContext().string(resId)
 
-inline fun Fragment.string(resId: Int, vararg args: Any) =
+fun Fragment.string(resId: Int, vararg args: Any) =
     requireContext().string(resId, *args)

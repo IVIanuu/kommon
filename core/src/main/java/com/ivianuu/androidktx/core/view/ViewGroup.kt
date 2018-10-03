@@ -20,7 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-inline fun ViewGroup.inflate(resId: Int, attachToRoot: Boolean): View =
+fun ViewGroup.inflate(resId: Int, attachToRoot: Boolean): View =
     LayoutInflater.from(context).inflate(resId, this, attachToRoot)
 
 fun ViewGroup.doOnChildViewAdded(block: (parent: View, child: View) -> Unit) =
