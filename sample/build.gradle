@@ -37,12 +37,12 @@ android {
         versionName = Build.versionName
     }
 
-    androidExtensions {
+    /*androidExtensions {
         // isExperimental = true
         configure(delegateClosureOf<AndroidExtensionsExtension> {
             isExperimental = true
         })
-    }
+    }*/
 
     kapt {
         correctErrorTypes = true
