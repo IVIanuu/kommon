@@ -58,6 +58,7 @@ inline fun <reified T : Service> Fragment.startForegroundService() {
 inline fun <reified T : Service> Fragment.startForegroundService(init: Intent.() -> Unit) {
     requireContext().startForegroundService<T>(init)
 }
+
 inline fun <reified T : Service> Fragment.startForegroundServiceCompat() {
     requireContext().startForegroundServiceCompat<T>()
 }

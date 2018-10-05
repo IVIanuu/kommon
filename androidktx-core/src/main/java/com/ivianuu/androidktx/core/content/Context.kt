@@ -90,7 +90,6 @@ inline val Context.isScreenOn: Boolean
         }
     }
 
-
 inline val Context.isScreenOff
     get() = !isScreenOn
 

@@ -3,15 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidKtx.iml" filepath="$PROJECT_DIR$/AndroidKtx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appcompat/appcompat.iml" filepath="$PROJECT_DIR$/appcompat/appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-appcompat/androidktx-appcompat.iml" filepath="$PROJECT_DIR$/androidktx-appcompat/androidktx-appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-core/androidktx-core.iml" filepath="$PROJECT_DIR$/androidktx-core/androidktx-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-fragment/androidktx-fragment.iml" filepath="$PROJECT_DIR$/androidktx-fragment/androidktx-fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-internal/androidktx-internal.iml" filepath="$PROJECT_DIR$/androidktx-internal/androidktx-internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-lifecycle/androidktx-lifecycle.iml" filepath="$PROJECT_DIR$/androidktx-lifecycle/androidktx-lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-recyclerview/androidktx-recyclerview.iml" filepath="$PROJECT_DIR$/androidktx-recyclerview/androidktx-recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidktx-viewpager/androidktx-viewpager.iml" filepath="$PROJECT_DIR$/androidktx-viewpager/androidktx-viewpager.iml" />
       <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fragment/fragment.iml" filepath="$PROJECT_DIR$/fragment/fragment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/internal/internal.iml" filepath="$PROJECT_DIR$/internal/internal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lifecycle/lifecycle.iml" filepath="$PROJECT_DIR$/lifecycle/lifecycle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recyclerview/recyclerview.iml" filepath="$PROJECT_DIR$/recyclerview/recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/viewpager/viewpager.iml" filepath="$PROJECT_DIR$/viewpager/viewpager.iml" />
     </modules>
   </component>
 </project>

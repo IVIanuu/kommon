@@ -19,8 +19,6 @@ package com.ivianuu.androidktx.fragment.app
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ivianuu.androidktx.lifecycle.defaultViewModelKey
-import com.ivianuu.androidktx.lifecycle.viewModel
 
 inline fun <reified T : ViewModel> Fragment.activityViewModel(
     factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),

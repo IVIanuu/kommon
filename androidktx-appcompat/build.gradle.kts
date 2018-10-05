@@ -19,22 +19,21 @@ import java.io.File
  */
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
-    id("kotlin-kapt")
+    id("com.github.dcendents.android-maven")
 }
+
+group = "com.github.ivianuu"
 
 android {
     compileSdkVersion(Build.compileSdk)
 
     defaultConfig {
-        applicationId = Build.applicationId
         buildToolsVersion = Build.buildToolsVersion
         minSdkVersion(Build.minSdk)
         targetSdkVersion(Build.targetSdk)
-        versionCode = Build.versionCode
-        versionName = Build.versionName
     }
 
     androidExtensions {
@@ -43,18 +42,33 @@ android {
             isExperimental = true
         })
     }
-
-    kapt {
-        correctErrorTypes = true
-    }
 }
 
 dependencies {
-    implementation(Deps.androidxAppCompat)
-    implementation(project(":androidktx-appcompat"))
-    implementation(project(":androidktx-core"))
-    implementation(project(":androidktx-fragment"))
-    implementation(project(":androidktx-lifecycle"))
-    implementation(project(":androidktx-recyclerview"))
-    implementation(project(":androidktx-viewpager"))
+    api(Deps.androidxAppCompat)
+    api(project(":androidktx-core"))
+    api(project(":androidktx-internal"))
+}
+
+val sourcesJar = task("sourcesJar", Jar::class) {
+    from(android.sourceSets["main"].java.srcDirs)
+    classifier = "sources"
+}
+
+val javadoc = task("javadoc", Javadoc::class) {
+    isFailOnError = false
+    source = android.sourceSets["main"].java.sourceFiles
+    classpath += project.files(android.bootClasspath.joinToString(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+val javadocJar = task("javadocJar", Jar::class) {
+    dependsOn(javadoc)
+    classifier = "javadoc"
+    from(javadoc.destinationDir)
+}
+
+artifacts {
+    add("archives", sourcesJar)
+    add("archives", javadocJar)
 }

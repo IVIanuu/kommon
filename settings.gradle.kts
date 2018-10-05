@@ -13,31 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-    }
-
-    dependencies {
-        classpath Deps.androidGradlePlugin
-        classpath Deps.kotlinGradlePlugin
-        classpath Deps.mavenGradlePlugin
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+include(
+    ":androidktx-appcompat",
+    ":androidktx-core",
+    ":androidktx-fragment",
+    ":androidktx-internal",
+    ":androidktx-lifecycle",
+    ":androidktx-recyclerview",
+    ":androidktx-viewpager",
+    ":sample"
+)

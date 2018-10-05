@@ -8,15 +8,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/appcompat" />
+            <option value="$PROJECT_DIR$/androidktx-appcompat" />
+            <option value="$PROJECT_DIR$/androidktx-core" />
+            <option value="$PROJECT_DIR$/androidktx-fragment" />
+            <option value="$PROJECT_DIR$/androidktx-internal" />
+            <option value="$PROJECT_DIR$/androidktx-lifecycle" />
+            <option value="$PROJECT_DIR$/androidktx-recyclerview" />
+            <option value="$PROJECT_DIR$/androidktx-viewpager" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/fragment" />
-            <option value="$PROJECT_DIR$/internal" />
-            <option value="$PROJECT_DIR$/lifecycle" />
-            <option value="$PROJECT_DIR$/recyclerview" />
             <option value="$PROJECT_DIR$/sample" />
-            <option value="$PROJECT_DIR$/viewpager" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

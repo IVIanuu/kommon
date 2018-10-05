@@ -41,6 +41,7 @@ inline fun <reified T : Activity> Context.startActivity(init: Intent.() -> Unit)
 inline fun <reified T : Service> Context.startService() {
     startService(intent<T>())
 }
+
 inline fun <reified T : Service> Context.startService(init: Intent.() -> Unit) {
     startService(intent<T>(init))
 }
