@@ -48,6 +48,7 @@ dependencies {
     api(Deps.androidxFragment)
     api(project(":androidktx-core"))
     api(project(":androidktx-internal"))
+    api(project(":androidktx-lifecycle"))
 }
 
 val sourcesJar = task("sourcesJar", Jar::class) {
