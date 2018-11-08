@@ -48,10 +48,7 @@ fun Context.dimenPx(resId: Int): Int = resources.getDimensionPixelSize(resId)
 
 fun Context.dimenPxOffset(resId: Int): Int = resources.getDimensionPixelOffset(resId)
 
-fun Context.float(resId: Int): Float {
-    resources.getValue(resId, typedValue, true)
-    return typedValue.float
-}
+fun Context.float(resId: Int) = ResourcesCompat.getFloat(resources, resId)
 
 fun Context.int(resId: Int): Int = resources.getInteger(resId)
 
