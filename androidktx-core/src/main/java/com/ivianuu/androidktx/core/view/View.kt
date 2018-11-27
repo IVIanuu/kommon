@@ -18,6 +18,14 @@ package com.ivianuu.androidktx.core.view
 
 import android.view.View
 
+fun View.onClick(onClick: (View) -> Unit) {
+    setOnClickListener(onClick)
+}
+
+fun View.onLongClick(onLongClick: (View) -> Boolean) {
+    setOnLongClickListener(onLongClick)
+}
+
 fun View.doOnAttachedToWindow(block: (v: View) -> Unit) =
     addOnAttachStateChangeListener(onViewAttachedToWindow = block)
 

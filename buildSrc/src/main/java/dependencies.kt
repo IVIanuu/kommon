@@ -18,7 +18,7 @@ object Versions {
     const val androidxArch = "2.0.0-rc01"
     const val archWork = "1.0.0-alpha08"
     const val constraintLayout = "1.1.3"
-    const val kotlin = "1.3.0"
+    const val kotlin = "1.3.10"
     const val mavenGradle = "2.1"
 }
 
