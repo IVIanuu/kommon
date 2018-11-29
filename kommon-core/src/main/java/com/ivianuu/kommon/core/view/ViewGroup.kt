@@ -20,8 +20,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-fun ViewGroup.inflate(resId: Int, attachToRoot: Boolean): View =
-    LayoutInflater.from(context).inflate(resId, this, attachToRoot)
+fun ViewGroup.inflate(id: Int, attachToRoot: Boolean): View =
+    LayoutInflater.from(context).inflate(id, this, attachToRoot)
 
 fun ViewGroup.doOnChildViewAdded(block: (parent: View, child: View) -> Unit) =
     setOnHierarchyChangeListener(onChildViewAdded = block)

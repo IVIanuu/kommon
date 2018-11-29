@@ -35,40 +35,40 @@ import com.ivianuu.kommon.core.content.stringArray
 import com.ivianuu.kommon.core.content.textArray
 import com.ivianuu.kommon.core.content.typedArray
 
-fun View.anim(resId: Int) = context.anim(resId)
+fun View.anim(id: Int) = context.anim(id)
 
-fun View.intArray(resId: Int) = context.intArray(resId)
+fun View.intArray(id: Int) = context.intArray(id)
 
-fun View.stringArray(resId: Int) = context.stringArray(resId)
+fun View.stringArray(id: Int) = context.stringArray(id)
 
-fun View.textArray(resId: Int) = context.textArray(resId)
+fun View.textArray(id: Int) = context.textArray(id)
 
-fun View.typedArray(resId: Int) = context.typedArray(resId)
+fun View.typedArray(id: Int) = context.typedArray(id)
 
-fun View.bool(resId: Int) = context.bool(resId)
+fun View.bool(id: Int) = context.bool(id)
 
-fun View.dimen(resId: Int) = context.dimen(resId)
+fun View.dimen(id: Int) = context.dimen(id)
 
-fun View.dimenPx(resId: Int) = context.dimenPx(resId)
+fun View.dimenPx(id: Int) = context.dimenPx(id)
 
-fun View.dimenPxOffset(resId: Int) = context.dimenPxOffset(resId)
+fun View.dimenPxOffset(id: Int) = context.dimenPxOffset(id)
 
-fun View.float(resId: Int) = context.float(resId)
+fun View.float(id: Int) = context.float(id)
 
-fun View.int(resId: Int): Int = context.int(resId)
+fun View.int(id: Int): Int = context.int(id)
 
-fun View.bitmap(resId: Int) = context.bitmap(resId)
+fun View.bitmap(id: Int) = context.bitmap(id)
 
-fun View.color(resId: Int) = context.color(resId)
+fun View.color(id: Int) = context.color(id)
 
-fun View.colorStateList(resId: Int) =
-    context.colorStateList(resId)
+fun View.colorStateList(id: Int) =
+    context.colorStateList(id)
 
-fun View.drawable(resId: Int) = context.drawable(resId)
+fun View.drawable(id: Int) = context.drawable(id)
 
-fun View.font(resId: Int) = context.font(resId)
+fun View.font(id: Int) = context.font(id)
 
-fun View.string(resId: Int) = context.string(resId)
+fun View.string(id: Int) = context.string(id)
 
-fun View.string(resId: Int, vararg args: Any) =
-    context.string(resId, *args)
+fun View.string(id: Int, vararg args: Any) =
+    context.string(id, *args)

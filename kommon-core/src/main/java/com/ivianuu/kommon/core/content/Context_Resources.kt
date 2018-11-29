@@ -23,38 +23,45 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.util.TypedValue
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
-fun Context.anim(resId: Int): Animation = AnimationUtils.loadAnimation(this, resId)
 
-fun Context.intArray(resId: Int): IntArray = resources.getIntArray(resId)
+fun Context.anim(id: Int): Animation = AnimationUtils.loadAnimation(this, id)
 
-fun Context.stringArray(resId: Int): Array<String> =
-    resources.getStringArray(resId)
+fun Context.intArray(id: Int): IntArray = resources.getIntArray(id)
 
-fun Context.textArray(resId: Int): Array<CharSequence> =
-    resources.getTextArray(resId)
+fun Context.stringArray(id: Int): Array<String> =
+    resources.getStringArray(id)
 
-fun Context.typedArray(resId: Int): TypedArray = resources.obtainTypedArray(resId)
+fun Context.textArray(id: Int): Array<CharSequence> =
+    resources.getTextArray(id)
 
-fun Context.bool(resId: Int): Boolean = resources.getBoolean(resId)
+fun Context.typedArray(id: Int): TypedArray = resources.obtainTypedArray(id)
 
-fun Context.dimen(resId: Int): Float = resources.getDimension(resId)
+fun Context.bool(id: Int): Boolean = resources.getBoolean(id)
 
-fun Context.dimenPx(resId: Int): Int = resources.getDimensionPixelSize(resId)
+fun Context.dimen(id: Int): Float = resources.getDimension(id)
 
-fun Context.dimenPxOffset(resId: Int): Int = resources.getDimensionPixelOffset(resId)
+fun Context.dimenPx(id: Int): Int = resources.getDimensionPixelSize(id)
 
-fun Context.float(resId: Int) = ResourcesCompat.getFloat(resources, resId)
+fun Context.dimenPxOffset(id: Int): Int = resources.getDimensionPixelOffset(id)
 
-fun Context.int(resId: Int): Int = resources.getInteger(resId)
+fun Context.float(id: Int): Float {
+    // todo use ResourcesCompat.getFloat
+    val value = TypedValue()
+    resources.getValue(id, value, true)
+    return value.float
+}
 
-fun Context.bitmap(resId: Int): Bitmap = BitmapFactory.decodeResource(resources, resId)
+fun Context.int(id: Int): Int = resources.getInteger(id)
 
-fun Context.color(resId: Int): Int = ContextCompat.getColor(this, resId)
+fun Context.bitmap(id: Int): Bitmap = BitmapFactory.decodeResource(resources, id)
+
+fun Context.color(id: Int): Int = ContextCompat.getColor(this, id)
 
 fun Context.colorStateList(resId: Int): ColorStateList =
     ContextCompat.getColorStateList(this, resId)!!

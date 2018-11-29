@@ -23,11 +23,7 @@ import android.content.res.TypedArray
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.util.TypedValue
 import androidx.core.content.res.use
-
-@PublishedApi
-internal val typedValue = TypedValue()
 
 fun Context.booleanAttr(attr: Int, defaultValue: Boolean = false): Boolean =
     withTypedArray(attr) { it.getBoolean(0, defaultValue) }
