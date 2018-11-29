@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.lifecycle
+
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+
+fun <T> LiveData<T>.observeK(owner: LifecycleOwner, onChanged: (T) -> Unit) {
+    observe(owner, Observer<T> { it?.let(onChanged) })
+}
+
+fun <T> LiveData<T>.requireValue() = value ?: throw IllegalStateException("value is null")

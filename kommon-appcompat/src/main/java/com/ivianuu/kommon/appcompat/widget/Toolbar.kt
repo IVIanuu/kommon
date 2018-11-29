@@ -13,14 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.appcompat.widget
+
+import androidx.appcompat.widget.Toolbar
+
+fun Toolbar.replaceMenu(newMenu: Int) {
+    menu.clear()
+    inflateMenu(newMenu)
+}

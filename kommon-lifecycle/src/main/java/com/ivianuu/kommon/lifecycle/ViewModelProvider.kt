@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.lifecycle
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import kotlin.reflect.KClass
+
+inline val KClass<*>.defaultViewModelKey
+    get() = "android.arch.lifecycle.ViewModelProvider.DefaultKey:" + java.canonicalName
+
+inline fun <reified T : ViewModel> ViewModelProvider.get() = get(T::class.java)
+
+inline fun <reified T : ViewModel> ViewModelProvider.get(key: String) = get(key, T::class.java)

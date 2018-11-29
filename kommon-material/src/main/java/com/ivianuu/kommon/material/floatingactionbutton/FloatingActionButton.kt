@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.material.floatingactionbutton
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
+fun FloatingActionButton.show(show: Boolean) {
+    if (show) show() else hide()
+}
+
+fun FloatingActionButton.hide(hide: Boolean) {
+    if (hide) hide() else show()
+}

@@ -13,14 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.core.content.pm
+
+import android.content.pm.PackageManager
+
+fun PackageManager.isAppInstalled(packageName: String) = try {
+    getApplicationInfo(packageName, 0)
+    true
+} catch (e: PackageManager.NameNotFoundException) {
+    false
+}
+
+fun PackageManager.isAppLaunchable(packageName: String) =
+    getLaunchIntentForPackage(packageName) != null
+
+fun PackageManager.isAppEnabled(packageName: String) = try {
+    getApplicationInfo(packageName, 0).enabled
+} catch (e: Exception) {
+    false
+}

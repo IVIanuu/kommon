@@ -1,7 +1,7 @@
 @file:Suppress("ClassName", "unused")
 
 object Build {
-    const val applicationId = "com.ivianuu.androidktx.sample"
+    const val applicationId = "com.ivianuu.kommon.sample"
     const val buildToolsVersion = "28.0.3"
 
     const val compileSdk = 28
@@ -19,6 +19,7 @@ object Versions {
     const val archWork = "1.0.0-alpha08"
     const val constraintLayout = "1.1.3"
     const val kotlin = "1.3.10"
+    const val materialComponents = "1.0.0"
     const val mavenGradle = "2.1"
 }
 
@@ -38,6 +39,9 @@ object Deps {
 
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+
+    const val materialComponents =
+        "com.google.android.material:material:${Versions.materialComponents}"
 
     const val mavenGradlePlugin = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradle}"
 }

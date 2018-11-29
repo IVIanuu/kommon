@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include(
-    ":kommon-appcompat",
-    ":kommon-core",
-    ":kommon-fragment",
-    ":kommon-internal",
-    ":kommon-lifecycle",
-    ":kommon-material",
-    ":kommon-recyclerview",
-    ":kommon-viewpager",
-    ":sample"
-)
+
+package com.ivianuu.kommon.core.view
+
+import android.view.Menu
+import android.view.MenuItem
+import androidx.core.view.iterator
+
+val Menu.items: Sequence<MenuItem>
+    get() = object : Sequence<MenuItem> {
+        override fun iterator(): Iterator<MenuItem> = this@items.iterator()
+    }
