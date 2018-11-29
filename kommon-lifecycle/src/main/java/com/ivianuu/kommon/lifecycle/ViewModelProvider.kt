@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlin.reflect.KClass
 
-inline val KClass<*>.defaultViewModelKey
+val KClass<*>.defaultViewModelKey
     get() = "android.arch.lifecycle.ViewModelProvider.DefaultKey:" + java.canonicalName
 
 inline fun <reified T : ViewModel> ViewModelProvider.get() = get(T::class.java)

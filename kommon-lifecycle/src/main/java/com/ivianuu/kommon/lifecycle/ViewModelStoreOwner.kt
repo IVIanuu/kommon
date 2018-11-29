@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 
-inline fun ViewModelStoreOwner.viewModelProvider(
+fun ViewModelStoreOwner.viewModelProvider(
     factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory()
 ) = ViewModelProvider(this, factory)
 
