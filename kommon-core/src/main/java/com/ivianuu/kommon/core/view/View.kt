@@ -17,6 +17,11 @@
 package com.ivianuu.kommon.core.view
 
 import android.view.View
+import android.view.ViewParent
+
+fun <T : ViewParent> View.parent() = parent as T
+
+fun <T> View.tag(key: Int) = getTag() as T
 
 fun View.onClick(onClick: (View) -> Unit) {
     setOnClickListener(onClick)
