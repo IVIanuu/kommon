@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-    api(Deps.archLifecycleExtensions)
+    api(Deps.androidxLifecycleExtensions)
     api(project(":kommon-core"))
     api(project(":kommon-internal"))
 }

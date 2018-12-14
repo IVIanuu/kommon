@@ -16,7 +16,7 @@ object Versions {
     const val androidx = "1.0.0"
     const val androidxAppCompat = "1.0.2"
     const val androidxCore = "1.0.1"
-    const val androidxArch = "2.0.0-rc01"
+    const val androidxLifecycle = "2.0.0"
     const val archWork = "1.0.0-alpha08"
     const val constraintLayout = "1.1.3"
     const val kotlin = "1.3.10"
@@ -32,11 +32,10 @@ object Deps {
     const val androidxCore = "androidx.core:core:${Versions.androidxCore}"
     const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidx}"
     const val androidxFragment = "androidx.fragment:fragment:${Versions.androidx}"
+    const val androidxLifecycleExtensions =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.androidxLifecycle}"
     const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
     const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidx}"
-
-    const val archLifecycleExtensions =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.androidxArch}"
 
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
