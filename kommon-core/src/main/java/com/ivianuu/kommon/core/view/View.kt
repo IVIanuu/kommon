@@ -29,15 +29,16 @@ fun <T> View.tag(key: Int) = getTag(key) as T
 
 fun <T> View.tagOrNull(key: Int) = getTag(key) as? T
 
-inline fun <T> View.tagOrSet(defaultValue: () -> T) = tagOrNull<T>() ?: defaultValue()
+inline fun <T> View.getTagOrSet(defaultValue: () -> T) = tagOrNull<T>() ?: defaultValue()
     .also { tag = it }
 
-inline fun <T> View.tagOrSet(key: Int, defaultValue: () -> T) = tagOrNull<T>(key) ?: defaultValue()
+inline fun <T> View.getTagOrSet(key: Int, defaultValue: () -> T) =
+    tagOrNull<T>(key) ?: defaultValue()
     .also { setTag(key, it) }
 
-fun <T> View.tagOrDefault(defaultValue: T) = tagOrNull<T>() ?: defaultValue
+fun <T> View.getTagOrDefault(defaultValue: T) = tagOrNull<T>() ?: defaultValue
 
-fun <T> View.tagOrDefault(key: Int, defaultValue: T) = tagOrNull<T>(key) ?: defaultValue
+fun <T> View.getTagOrDefault(key: Int, defaultValue: T) = tagOrNull<T>(key) ?: defaultValue
 
 fun View.onClick(onClick: (View) -> Unit) {
     setOnClickListener(onClick)
