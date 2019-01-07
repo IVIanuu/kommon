@@ -21,20 +21,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
-fun Lifecycle.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit) =
+fun Lifecycle.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit): LifecycleObserver =
     addObserver(onAny = block)
 
-fun Lifecycle.doOnCreate(block: (owner: LifecycleOwner) -> Unit) = addObserver(onCreate = block)
+fun Lifecycle.doOnCreate(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onCreate = block)
 
-fun Lifecycle.doOnStart(block: (owner: LifecycleOwner) -> Unit) = addObserver(onStart = block)
+fun Lifecycle.doOnStart(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onStart = block)
 
-fun Lifecycle.doOnResume(block: (owner: LifecycleOwner) -> Unit) = addObserver(onResume = block)
+fun Lifecycle.doOnResume(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onResume = block)
 
-fun Lifecycle.doOnPause(block: (owner: LifecycleOwner) -> Unit) = addObserver(onPause = block)
+fun Lifecycle.doOnPause(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onPause = block)
 
-fun Lifecycle.doOnStop(block: (owner: LifecycleOwner) -> Unit) = addObserver(onStop = block)
+fun Lifecycle.doOnStop(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onStop = block)
 
-fun Lifecycle.doOnDestroy(block: (owner: LifecycleOwner) -> Unit) = addObserver(onDestroy = block)
+fun Lifecycle.doOnDestroy(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver = addObserver(onDestroy = block)
 
 fun Lifecycle.addObserver(
     onAny: ((owner: LifecycleOwner, event: Lifecycle.Event) -> Unit)? = null,

@@ -16,7 +16,12 @@
 
 package com.ivianuu.kommon.core.view
 
+import android.content.res.ColorStateList
+import android.content.res.TypedArray
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.view.View
+import android.view.animation.Animation
 import com.ivianuu.kommon.core.content.anim
 import com.ivianuu.kommon.core.content.bitmap
 import com.ivianuu.kommon.core.content.bool
@@ -35,36 +40,36 @@ import com.ivianuu.kommon.core.content.stringArray
 import com.ivianuu.kommon.core.content.textArray
 import com.ivianuu.kommon.core.content.typedArray
 
-fun View.anim(id: Int) = context.anim(id)
+fun View.anim(id: Int): Animation = context.anim(id)
 
-fun View.intArray(id: Int) = context.intArray(id)
+fun View.intArray(id: Int): IntArray = context.intArray(id)
 
-fun View.stringArray(id: Int) = context.stringArray(id)
+fun View.stringArray(id: Int): Array<String> = context.stringArray(id)
 
-fun View.textArray(id: Int) = context.textArray(id)
+fun View.textArray(id: Int): Array<CharSequence> = context.textArray(id)
 
-fun View.typedArray(id: Int) = context.typedArray(id)
+fun View.typedArray(id: Int): TypedArray = context.typedArray(id)
 
-fun View.bool(id: Int) = context.bool(id)
+fun View.bool(id: Int): Boolean = context.bool(id)
 
-fun View.dimen(id: Int) = context.dimen(id)
+fun View.dimen(id: Int): Float = context.dimen(id)
 
-fun View.dimenPx(id: Int) = context.dimenPx(id)
+fun View.dimenPx(id: Int): Int = context.dimenPx(id)
 
-fun View.dimenPxOffset(id: Int) = context.dimenPxOffset(id)
+fun View.dimenPxOffset(id: Int): Int = context.dimenPxOffset(id)
 
-fun View.float(id: Int) = context.float(id)
+fun View.float(id: Int): Float = context.float(id)
 
 fun View.int(id: Int): Int = context.int(id)
 
-fun View.bitmap(id: Int) = context.bitmap(id)
+fun View.bitmap(id: Int): Bitmap = context.bitmap(id)
 
-fun View.color(id: Int) = context.color(id)
+fun View.color(id: Int): Int = context.color(id)
 
-fun View.colorStateList(id: Int) =
+fun View.colorStateList(id: Int): ColorStateList =
     context.colorStateList(id)
 
-fun View.drawable(id: Int) = context.drawable(id)
+fun View.drawable(id: Int): Drawable = context.drawable(id)
 
 fun View.font(id: Int) = context.font(id)
 

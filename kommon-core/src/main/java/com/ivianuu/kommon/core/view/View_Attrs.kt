@@ -37,51 +37,51 @@ import com.ivianuu.kommon.core.content.stringAttr
 import com.ivianuu.kommon.core.content.textArrayAttr
 import com.ivianuu.kommon.core.content.textAttr
 
-fun View.booleanAttr(attr: Int, defaultValue: Boolean = false) =
+fun View.booleanAttr(attr: Int, defaultValue: Boolean = false): Boolean =
     context.booleanAttr(attr, defaultValue)
 
-fun View.colorAttr(attr: Int, defaultValue: Int = 0) =
+fun View.colorAttr(attr: Int, defaultValue: Int = 0): Int =
     context.colorAttr(attr, defaultValue)
 
 fun View.colorStateListAttr(
     attr: Int,
     defaultValue: ColorStateList? = null
-) =
+): ColorStateList? =
     context.colorStateListAttr(attr, defaultValue)
 
-fun View.dimenAttr(attr: Int, defaultValue: Float = 0f) =
+fun View.dimenAttr(attr: Int, defaultValue: Float = 0f): Float =
     context.dimenAttr(attr, defaultValue)
 
-fun View.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0) =
+fun View.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0): Int =
     context.dimenPxOffsetAttr(attr, defaultValue)
 
-fun View.dimenPxAttr(attr: Int, defaultValue: Int = 0) =
+fun View.dimenPxAttr(attr: Int, defaultValue: Int = 0): Int =
     context.dimenPxAttr(attr, defaultValue)
 
-fun View.drawableAttr(attr: Int, defaultValue: Drawable? = null) =
+fun View.drawableAttr(attr: Int, defaultValue: Drawable? = null): Drawable? =
     context.drawableAttr(attr, defaultValue)
 
-fun View.floatAttr(attr: Int, defaultValue: Float = 0f) =
+fun View.floatAttr(attr: Int, defaultValue: Float = 0f): Float =
     context.floatAttr(attr, defaultValue)
 
 @TargetApi(Build.VERSION_CODES.O)
-fun View.fontAttr(attr: Int, defaultValue: Typeface? = null) =
+fun View.fontAttr(attr: Int, defaultValue: Typeface? = null): Typeface? =
     context.fontAttr(attr, defaultValue)
 
-fun View.intArrayAttr(attr: Int, defaultValue: Int = 0) =
+fun View.intArrayAttr(attr: Int, defaultValue: Int = 0): Int =
     context.intArrayAttr(attr, defaultValue)
 
-fun View.integerAttr(attr: Int, defaultValue: Int = 0) =
+fun View.integerAttr(attr: Int, defaultValue: Int = 0): Int =
     context.integerAttr(attr, defaultValue)
 
-fun View.stringAttr(attr: Int, defaultValue: String? = null) =
+fun View.stringAttr(attr: Int, defaultValue: String? = null): String? =
     context.stringAttr(attr, defaultValue)
 
-fun View.textAttr(attr: Int, defaultValue: CharSequence? = null) =
+fun View.textAttr(attr: Int, defaultValue: CharSequence? = null): CharSequence? =
     context.textAttr(attr, defaultValue)
 
 fun View.textArrayAttr(
     attr: Int,
     defaultValue: Array<CharSequence>? = null
-) =
+): Array<CharSequence>? =
     context.textArrayAttr(attr, defaultValue)

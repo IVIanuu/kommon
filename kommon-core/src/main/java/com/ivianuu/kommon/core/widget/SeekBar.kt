@@ -18,13 +18,13 @@ package com.ivianuu.kommon.core.widget
 
 import android.widget.SeekBar
 
-fun SeekBar.doOnProgressChanged(block: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit) =
+fun SeekBar.doOnProgressChanged(block: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit): SeekBar.OnSeekBarChangeListener =
     setOnSeekBarChangeListener(onProgressChanged = block)
 
-fun SeekBar.doOnStartTrackingTouch(block: (seekBar: SeekBar) -> Unit) =
+fun SeekBar.doOnStartTrackingTouch(block: (seekBar: SeekBar) -> Unit): SeekBar.OnSeekBarChangeListener =
     setOnSeekBarChangeListener(onStartTrackingTouch = block)
 
-fun SeekBar.doOnStopTrackingTouch(block: (seekBar: SeekBar) -> Unit) =
+fun SeekBar.doOnStopTrackingTouch(block: (seekBar: SeekBar) -> Unit): SeekBar.OnSeekBarChangeListener =
     setOnSeekBarChangeListener(onStopTrackingTouch = block)
 
 fun SeekBar.setOnSeekBarChangeListener(

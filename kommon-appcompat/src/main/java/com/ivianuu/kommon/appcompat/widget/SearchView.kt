@@ -18,10 +18,10 @@ package com.ivianuu.kommon.appcompat.widget
 
 import androidx.appcompat.widget.SearchView
 
-fun SearchView.doOnQueryTextChange(block: (newText: String) -> Boolean) =
+fun SearchView.doOnQueryTextChange(block: (newText: String) -> Boolean): SearchView.OnQueryTextListener =
     setOnQueryTextListener(onQueryTextChange = block)
 
-fun SearchView.doOnQueryTextSubmit(block: (query: String) -> Boolean) =
+fun SearchView.doOnQueryTextSubmit(block: (query: String) -> Boolean): SearchView.OnQueryTextListener =
     setOnQueryTextListener(onQueryTextSubmit = block)
 
 fun SearchView.setOnQueryTextListener(

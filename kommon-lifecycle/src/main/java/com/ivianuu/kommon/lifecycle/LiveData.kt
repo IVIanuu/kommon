@@ -24,4 +24,4 @@ fun <T> LiveData<T>.observeK(owner: LifecycleOwner, onChanged: (T) -> Unit) {
     observe(owner, Observer<T> { it?.let(onChanged) })
 }
 
-fun <T> LiveData<T>.requireValue() = value ?: throw IllegalStateException("value is null")
+fun <T> LiveData<T>.requireValue(): T = value ?: throw IllegalStateException("value is null")

@@ -17,25 +17,26 @@
 package com.ivianuu.kommon.lifecycle
 
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
-fun LifecycleOwner.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit) =
+fun LifecycleOwner.doOnAny(block: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit): LifecycleObserver =
     lifecycle.doOnAny(block)
 
-fun LifecycleOwner.doOnCreate(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnCreate(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnCreate(block)
 
-fun LifecycleOwner.doOnStart(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnStart(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnStart(block)
 
-fun LifecycleOwner.doOnResume(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnResume(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnResume(block)
 
-fun LifecycleOwner.doOnPause(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnPause(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnPause(block)
 
-fun LifecycleOwner.doOnStop(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnStop(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnStop(block)
 
-fun LifecycleOwner.doOnDestroy(block: (owner: LifecycleOwner) -> Unit) =
+fun LifecycleOwner.doOnDestroy(block: (owner: LifecycleOwner) -> Unit): LifecycleObserver =
     lifecycle.doOnDestroy(block)

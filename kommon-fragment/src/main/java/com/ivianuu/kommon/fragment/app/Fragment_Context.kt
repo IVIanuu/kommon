@@ -16,6 +16,11 @@
 
 package com.ivianuu.kommon.fragment.app
 
+import android.content.ComponentName
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.util.DisplayMetrics
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ivianuu.kommon.core.content.batteryLevel
 import com.ivianuu.kommon.core.content.componentName
@@ -42,22 +47,22 @@ import com.ivianuu.kommon.core.content.systemServiceOrNull
 import com.ivianuu.kommon.core.content.toastLong
 import com.ivianuu.kommon.core.content.toastShort
 
-inline val Fragment.configuration
+inline val Fragment.configuration: Configuration
     get() = requireContext().configuration
 
-inline val Fragment.displayMetrics
+inline val Fragment.displayMetrics: DisplayMetrics
     get() = requireContext().displayMetrics
 
-inline val Fragment.defaultSharedPreferences
+inline val Fragment.defaultSharedPreferences: SharedPreferences
     get() = requireContext().defaultSharedPreferences
 
-inline val Fragment.rotation
+inline val Fragment.rotation: Int
     get() = requireContext().rotation
 
-inline val Fragment.isPortrait
+inline val Fragment.isPortrait: Boolean
     get() = requireContext().isPortrait
 
-inline val Fragment.isLandscape
+inline val Fragment.isLandscape: Boolean
     get() = requireContext().isLandscape
 
 inline val Fragment.screenWidth: Int
@@ -66,16 +71,16 @@ inline val Fragment.screenWidth: Int
 inline val Fragment.screenHeight: Int
     get() = requireContext().screenHeight
 
-inline val Fragment.realScreenWidth
+inline val Fragment.realScreenWidth: Int
     get() = requireContext().realScreenWidth
 
 inline val Fragment.realScreenHeight: Int
     get() = requireContext().realScreenHeight
 
-inline val Fragment.isScreenOn
+inline val Fragment.isScreenOn: Boolean
     get() = requireContext().isScreenOn
 
-inline val Fragment.isScreenOff
+inline val Fragment.isScreenOff: Boolean
     get() = requireContext().isScreenOff
 
 inline val Fragment.isCharging: Boolean
@@ -84,37 +89,37 @@ inline val Fragment.isCharging: Boolean
 inline val Fragment.batteryLevel: Int
     get() = requireContext().batteryLevel
 
-inline fun <reified T> Fragment.componentName() =
+inline fun <reified T> Fragment.componentName(): ComponentName =
     requireContext().componentName<T>()
 
-fun Fragment.componentName(className: String) =
+fun Fragment.componentName(className: String): ComponentName =
     requireContext().componentName(className)
 
-inline fun <reified T> Fragment.systemService() = requireContext().systemService<T>()
+inline fun <reified T> Fragment.systemService(): T = requireContext().systemService<T>()
 
-inline fun <reified T> Fragment.systemServiceOrNull() = requireContext().systemServiceOrNull<T>()
+inline fun <reified T> Fragment.systemServiceOrNull(): T? = requireContext().systemServiceOrNull<T>()
 
-fun Fragment.toastShort(text: CharSequence) = requireContext().toastShort(text)
+fun Fragment.toastShort(text: CharSequence): Toast = requireContext().toastShort(text)
 
-fun Fragment.toastShort(textRes: Int, vararg args: Any) =
+fun Fragment.toastShort(textRes: Int, vararg args: Any): Toast =
     requireContext().toastShort(textRes, *args)
 
-fun Fragment.toastLong(text: CharSequence) =
+fun Fragment.toastLong(text: CharSequence): Toast =
     requireContext().toastLong(text)
 
-fun Fragment.toastLong(textRes: Int, vararg args: Any) =
+fun Fragment.toastLong(textRes: Int, vararg args: Any): Toast =
     requireContext().toastLong(textRes, *args)
 
-fun Fragment.hasPermissions(vararg permissions: String) =
+fun Fragment.hasPermissions(vararg permissions: String): Boolean =
     requireContext().hasPermissions(*permissions)
 
-fun Fragment.isAppInstalled(packageName: String) =
+fun Fragment.isAppInstalled(packageName: String): Boolean =
     requireContext().isAppInstalled(packageName)
 
-fun Fragment.isAppLaunchable(packageName: String) =
+fun Fragment.isAppLaunchable(packageName: String): Boolean =
     requireContext().isAppLaunchable(packageName)
 
-fun Fragment.isAppEnabled(packageName: String) =
+fun Fragment.isAppEnabled(packageName: String): Boolean =
     requireContext().isAppEnabled(packageName)
 
-fun Fragment.dp(dp: Int) = requireContext().dp(dp)
+fun Fragment.dp(dp: Int): Float = requireContext().dp(dp)

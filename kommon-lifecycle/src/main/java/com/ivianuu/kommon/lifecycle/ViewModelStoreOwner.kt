@@ -22,15 +22,15 @@ import androidx.lifecycle.ViewModelStoreOwner
 
 fun ViewModelStoreOwner.viewModelProvider(
     factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory()
-) = ViewModelProvider(this, factory)
+): ViewModelProvider = ViewModelProvider(this, factory)
 
 inline fun <reified T : ViewModel> ViewModelStoreOwner.viewModel(
     factory: ViewModelProvider.Factory = ViewModelProvider.NewInstanceFactory(),
     key: String = T::class.defaultViewModelKey
-) = viewModelProvider(factory).get(key, T::class.java)
+): T = viewModelProvider(factory).get(key, T::class.java)
 
 // todo make crossinline when fixed
 inline fun <reified T : ViewModel> ViewModelStoreOwner.bindViewModel(
     noinline keyProvider: () -> String = { T::class.defaultViewModelKey },
     noinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
-) = lazy(LazyThreadSafetyMode.NONE) { viewModel<T>(factoryProvider(), keyProvider()) }
+): Lazy<ViewModel> = lazy(LazyThreadSafetyMode.NONE) { viewModel<T>(factoryProvider(), keyProvider()) }

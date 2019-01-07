@@ -18,13 +18,13 @@ package com.ivianuu.kommon.viewpager.widget
 
 import androidx.viewpager.widget.ViewPager
 
-fun ViewPager.doOnPageScrolled(block: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit) =
+fun ViewPager.doOnPageScrolled(block: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit): ViewPager.OnPageChangeListener =
     addOnPageChangeListener(onPageScrolled = block)
 
-fun ViewPager.doOnPageSelected(block: (position: Int) -> Unit) =
+fun ViewPager.doOnPageSelected(block: (position: Int) -> Unit): ViewPager.OnPageChangeListener =
     addOnPageChangeListener(onPageSelected = block)
 
-fun ViewPager.doOnPageScrollStateChanged(block: (state: Int) -> Unit) =
+fun ViewPager.doOnPageScrollStateChanged(block: (state: Int) -> Unit): ViewPager.OnPageChangeListener =
     addOnPageChangeListener(onPageScrollStateChanged = block)
 
 fun ViewPager.addOnPageChangeListener(

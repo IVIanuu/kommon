@@ -20,10 +20,10 @@ import android.view.View
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 
-fun Snackbar.doOnShown(block: (transientBottomBar: Snackbar) -> Unit) =
+fun Snackbar.doOnShown(block: (transientBottomBar: Snackbar) -> Unit): BaseTransientBottomBar.BaseCallback<Snackbar> =
     addCallback(onShown = block)
 
-fun Snackbar.doOnDismissed(block: (transientBottomBar: Snackbar, event: Int) -> Unit) =
+fun Snackbar.doOnDismissed(block: (transientBottomBar: Snackbar, event: Int) -> Unit): BaseTransientBottomBar.BaseCallback<Snackbar> =
     addCallback(onDismissed = block)
 
 fun Snackbar.addCallback(
@@ -49,12 +49,12 @@ fun View.snackbar(
     textRes: Int,
     length: Int = Snackbar.LENGTH_LONG,
     block: Snackbar.() -> Unit = snackbarInitStub
-) =
+): Snackbar =
     Snackbar.make(this, textRes, length).apply(block).apply { show() }
 
 fun View.snackbar(
     text: CharSequence,
     length: Int = Snackbar.LENGTH_LONG,
     block: Snackbar.() -> Unit = snackbarInitStub
-) =
+): Snackbar =
     Snackbar.make(this, text, length).apply(block).apply { show() }

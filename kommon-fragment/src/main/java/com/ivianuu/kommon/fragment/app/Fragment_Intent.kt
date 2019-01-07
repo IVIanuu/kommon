@@ -28,9 +28,9 @@ import com.ivianuu.kommon.core.content.startForegroundService
 import com.ivianuu.kommon.core.content.startForegroundServiceCompat
 import com.ivianuu.kommon.core.content.startService
 
-inline fun <reified T> Fragment.intent() = requireContext().intent<T>()
+inline fun <reified T> Fragment.intent(): Intent = requireContext().intent<T>()
 
-inline fun <reified T> Fragment.intent(init: Intent.() -> Unit) =
+inline fun <reified T> Fragment.intent(init: Intent.() -> Unit): Intent =
     requireContext().intent<T>(init)
 
 inline fun <reified T : Activity> Fragment.startActivity() {

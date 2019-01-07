@@ -23,10 +23,10 @@ import kotlin.reflect.KClass
 private val FIELD_CACHE = mutableMapOf<Class<*>, MutableMap<String, Field?>>()
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-fun KClass<*>.field(name: String) = java.field(name)
+fun KClass<*>.field(name: String): Field = java.field(name)
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-fun Class<*>.field(name: String) = FIELD_CACHE.getOrPut(this) { mutableMapOf() }
+fun Class<*>.field(name: String): Field = FIELD_CACHE.getOrPut(this) { mutableMapOf() }
     .getOrPut(name) {
         try {
             getDeclaredField(name).apply { isAccessible = true }

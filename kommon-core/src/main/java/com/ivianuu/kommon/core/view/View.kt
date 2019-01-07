@@ -48,10 +48,10 @@ fun View.onLongClick(onLongClick: (View) -> Boolean) {
     setOnLongClickListener(onLongClick)
 }
 
-fun View.doOnAttachedToWindow(block: (v: View) -> Unit) =
+fun View.doOnAttachedToWindow(block: (v: View) -> Unit): View.OnAttachStateChangeListener =
     addOnAttachStateChangeListener(onViewAttachedToWindow = block)
 
-fun View.doOnDetachedFromWindow(block: (v: View) -> Unit) =
+fun View.doOnDetachedFromWindow(block: (v: View) -> Unit): View.OnAttachStateChangeListener =
     addOnAttachStateChangeListener(onViewDetachedFromWindow = block)
 
 fun View.addOnAttachStateChangeListener(

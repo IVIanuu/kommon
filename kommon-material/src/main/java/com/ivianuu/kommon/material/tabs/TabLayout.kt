@@ -18,13 +18,13 @@ package com.ivianuu.kommon.material.tabs
 
 import com.google.android.material.tabs.TabLayout
 
-fun TabLayout.doOnTabSelected(block: (tab: TabLayout.Tab) -> Unit) =
+fun TabLayout.doOnTabSelected(block: (tab: TabLayout.Tab) -> Unit): TabLayout.OnTabSelectedListener =
     addOnTabSelectedListener(onTabSelected = block)
 
-fun TabLayout.doOnTabUnselected(block: (tab: TabLayout.Tab) -> Unit) =
+fun TabLayout.doOnTabUnselected(block: (tab: TabLayout.Tab) -> Unit): TabLayout.OnTabSelectedListener =
     addOnTabSelectedListener(onTabUnselected = block)
 
-fun TabLayout.doOnTabReselected(block: (tab: TabLayout.Tab) -> Unit) =
+fun TabLayout.doOnTabReselected(block: (tab: TabLayout.Tab) -> Unit): TabLayout.OnTabSelectedListener =
     addOnTabSelectedListener(onTabReselected = block)
 
 fun TabLayout.addOnTabSelectedListener(

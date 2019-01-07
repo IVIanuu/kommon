@@ -37,51 +37,51 @@ import com.ivianuu.kommon.core.content.stringAttr
 import com.ivianuu.kommon.core.content.textArrayAttr
 import com.ivianuu.kommon.core.content.textAttr
 
-fun Fragment.booleanAttr(attr: Int, defaultValue: Boolean = false) =
+fun Fragment.booleanAttr(attr: Int, defaultValue: Boolean = false): Boolean =
     requireContext().booleanAttr(attr, defaultValue)
 
-fun Fragment.colorAttr(attr: Int, defaultValue: Int = 0) =
+fun Fragment.colorAttr(attr: Int, defaultValue: Int = 0): Int =
     requireContext().colorAttr(attr, defaultValue)
 
 fun Fragment.colorStateListAttr(
     attr: Int,
     defaultValue: ColorStateList? = null
-) =
+): ColorStateList? =
     requireContext().colorStateListAttr(attr, defaultValue)
 
-fun Fragment.dimenAttr(attr: Int, defaultValue: Float = 0f) =
+fun Fragment.dimenAttr(attr: Int, defaultValue: Float = 0f): Float =
     requireContext().dimenAttr(attr, defaultValue)
 
-fun Fragment.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0) =
+fun Fragment.dimenPxOffsetAttr(attr: Int, defaultValue: Int = 0): Int =
     requireContext().dimenPxOffsetAttr(attr, defaultValue)
 
-fun Fragment.dimenPxAttr(attr: Int, defaultValue: Int = 0) =
+fun Fragment.dimenPxAttr(attr: Int, defaultValue: Int = 0): Int =
     requireContext().dimenPxAttr(attr, defaultValue)
 
-fun Fragment.drawableAttr(attr: Int, defaultValue: Drawable? = null) =
+fun Fragment.drawableAttr(attr: Int, defaultValue: Drawable? = null): Drawable? =
     requireContext().drawableAttr(attr, defaultValue)
 
-fun Fragment.floatAttr(attr: Int, defaultValue: Float = 0f) =
+fun Fragment.floatAttr(attr: Int, defaultValue: Float = 0f): Float =
     requireContext().floatAttr(attr, defaultValue)
 
 @TargetApi(Build.VERSION_CODES.O)
-fun Fragment.fontAttr(attr: Int, defaultValue: Typeface? = null) =
+fun Fragment.fontAttr(attr: Int, defaultValue: Typeface? = null): Typeface? =
     requireContext().fontAttr(attr, defaultValue)
 
-fun Fragment.intArrayAttr(attr: Int, defaultValue: Int = 0) =
+fun Fragment.intArrayAttr(attr: Int, defaultValue: Int = 0): Int =
     requireContext().intArrayAttr(attr, defaultValue)
 
-fun Fragment.integerAttr(attr: Int, defaultValue: Int = 0) =
+fun Fragment.integerAttr(attr: Int, defaultValue: Int = 0): Int =
     requireContext().integerAttr(attr, defaultValue)
 
-fun Fragment.stringAttr(attr: Int, defaultValue: String? = null) =
+fun Fragment.stringAttr(attr: Int, defaultValue: String? = null): String? =
     requireContext().stringAttr(attr, defaultValue)
 
-fun Fragment.textAttr(attr: Int, defaultValue: CharSequence? = null) =
+fun Fragment.textAttr(attr: Int, defaultValue: CharSequence? = null): CharSequence? =
     requireContext().textAttr(attr, defaultValue)
 
 fun Fragment.textArrayAttr(
     attr: Int,
     defaultValue: Array<CharSequence>? = null
-) =
+): Array<CharSequence>? =
     requireContext().textArrayAttr(attr, defaultValue)

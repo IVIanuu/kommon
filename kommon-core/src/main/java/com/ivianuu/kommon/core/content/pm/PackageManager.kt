@@ -18,17 +18,17 @@ package com.ivianuu.kommon.core.content.pm
 
 import android.content.pm.PackageManager
 
-fun PackageManager.isAppInstalled(packageName: String) = try {
+fun PackageManager.isAppInstalled(packageName: String): Boolean = try {
     getApplicationInfo(packageName, 0)
     true
 } catch (e: PackageManager.NameNotFoundException) {
     false
 }
 
-fun PackageManager.isAppLaunchable(packageName: String) =
+fun PackageManager.isAppLaunchable(packageName: String): Boolean =
     getLaunchIntentForPackage(packageName) != null
 
-fun PackageManager.isAppEnabled(packageName: String) = try {
+fun PackageManager.isAppEnabled(packageName: String): Boolean = try {
     getApplicationInfo(packageName, 0).enabled
 } catch (e: Exception) {
     false

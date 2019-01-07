@@ -16,7 +16,12 @@
 
 package com.ivianuu.kommon.core.view
 
+import android.content.ComponentName
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.util.DisplayMetrics
 import android.view.View
+import android.widget.Toast
 import com.ivianuu.kommon.core.content.batteryLevel
 import com.ivianuu.kommon.core.content.componentName
 import com.ivianuu.kommon.core.content.configuration
@@ -42,22 +47,22 @@ import com.ivianuu.kommon.core.content.systemServiceOrNull
 import com.ivianuu.kommon.core.content.toastLong
 import com.ivianuu.kommon.core.content.toastShort
 
-inline val View.configuration
+inline val View.configuration: Configuration
     get() = context.configuration
 
-inline val View.displayMetrics
+inline val View.displayMetrics: DisplayMetrics
     get() = context.displayMetrics
 
-inline val View.defaultSharedPreferences
+inline val View.defaultSharedPreferences: SharedPreferences
     get() = context.defaultSharedPreferences
 
-inline val View.rotation
+inline val View.rotation: Int
     get() = context.rotation
 
-inline val View.isPortrait
+inline val View.isPortrait: Boolean
     get() = context.isPortrait
 
-inline val View.isLandscape
+inline val View.isLandscape: Boolean
     get() = context.isLandscape
 
 inline val View.screenWidth: Int
@@ -66,16 +71,16 @@ inline val View.screenWidth: Int
 inline val View.screenHeight: Int
     get() = context.screenHeight
 
-inline val View.realScreenWidth
+inline val View.realScreenWidth: Int
     get() = context.realScreenWidth
 
 inline val View.realScreenHeight: Int
     get() = context.realScreenHeight
 
-inline val View.isScreenOn
+inline val View.isScreenOn: Boolean
     get() = context.isScreenOn
 
-inline val View.isScreenOff
+inline val View.isScreenOff: Boolean
     get() = context.isScreenOff
 
 inline val View.isCharging: Boolean
@@ -84,37 +89,37 @@ inline val View.isCharging: Boolean
 inline val View.batteryLevel: Int
     get() = context.batteryLevel
 
-inline fun <reified T> View.componentName() =
+inline fun <reified T> View.componentName(): ComponentName =
     context.componentName<T>()
 
-fun View.componentName(className: String) =
+fun View.componentName(className: String): ComponentName =
     context.componentName(className)
 
-inline fun <reified T> View.systemService() = context.systemService<T>()
+inline fun <reified T> View.systemService(): T = context.systemService<T>()
 
-inline fun <reified T> View.systemServiceOrNull() = context.systemServiceOrNull<T>()
+inline fun <reified T> View.systemServiceOrNull(): T? = context.systemServiceOrNull<T>()
 
-fun View.toastShort(text: CharSequence) = context.toastShort(text)
+fun View.toastShort(text: CharSequence): Toast = context.toastShort(text)
 
-fun View.toastShort(textRes: Int, vararg args: Any) =
+fun View.toastShort(textRes: Int, vararg args: Any): Toast =
     context.toastShort(textRes, *args)
 
-fun View.toastLong(text: CharSequence) =
+fun View.toastLong(text: CharSequence): Toast =
     context.toastLong(text)
 
-fun View.toastLong(textRes: Int, vararg args: Any) =
+fun View.toastLong(textRes: Int, vararg args: Any): Toast =
     context.toastLong(textRes, *args)
 
-fun View.hasPermissions(vararg permissions: String) =
+fun View.hasPermissions(vararg permissions: String): Boolean =
     context.hasPermissions(*permissions)
 
-fun View.isAppInstalled(packageName: String) =
+fun View.isAppInstalled(packageName: String): Boolean =
     context.isAppInstalled(packageName)
 
-fun View.isAppLaunchable(packageName: String) =
+fun View.isAppLaunchable(packageName: String): Boolean =
     context.isAppLaunchable(packageName)
 
-fun View.isAppEnabled(packageName: String) =
+fun View.isAppEnabled(packageName: String): Boolean =
     context.isAppEnabled(packageName)
 
-fun View.dp(dp: Int) = context.dp(dp)
+fun View.dp(dp: Int): Float = context.dp(dp)

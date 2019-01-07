@@ -51,13 +51,13 @@ inline val Context.defaultSharedPreferences: SharedPreferences
 inline val Context.displayMetrics: DisplayMetrics
     get() = resources.displayMetrics
 
-inline val Context.rotation
+inline val Context.rotation: Int
     get() = systemService<WindowManager>().defaultDisplay.rotation
 
-inline val Context.isPortrait
+inline val Context.isPortrait: Boolean
     get() = configuration.isPortrait
 
-inline val Context.isLandscape
+inline val Context.isLandscape: Boolean
     get() = configuration.isLandscape
 
 inline val Context.screenWidth: Int
@@ -90,7 +90,7 @@ inline val Context.isScreenOn: Boolean
         }
     }
 
-inline val Context.isScreenOff
+inline val Context.isScreenOff: Boolean
     get() = !isScreenOn
 
 inline val Context.isCharging: Boolean
@@ -111,11 +111,11 @@ fun Context.toastLong(text: CharSequence): Toast =
 fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_LONG).apply { show() }
 
-inline fun <reified T : Application> Context.app() = applicationContext as T
+inline fun <reified T : Application> Context.app(): T = applicationContext as T
 
-inline fun <reified T> Context.componentName() = ComponentName(this, T::class.java)
+inline fun <reified T> Context.componentName(): ComponentName = ComponentName(this, T::class.java)
 
-fun Context.componentName(className: String) =
+fun Context.componentName(className: String): ComponentName =
     ComponentName(this, className)
 
 fun Context.startForegroundServiceCompat(intent: Intent) {
@@ -126,10 +126,10 @@ fun Context.startForegroundServiceCompat(intent: Intent) {
     }
 }
 
-inline fun <reified T> Context.systemService() =
+inline fun <reified T> Context.systemService(): T =
     ContextCompat.getSystemService<T>(this, T::class.java)!!
 
-inline fun <reified T> Context.systemServiceOrNull() = try {
+inline fun <reified T> Context.systemServiceOrNull(): T? = try {
     systemService<T>()
 } catch (e: Exception) {
     null
@@ -152,13 +152,13 @@ fun Context.hasPermissions(vararg permissions: String): Boolean {
     }
 }
 
-fun Context.isAppInstalled(packageName: String) =
+fun Context.isAppInstalled(packageName: String): Boolean =
     packageManager.isAppInstalled(packageName)
 
-fun Context.isAppLaunchable(packageName: String) =
+fun Context.isAppLaunchable(packageName: String): Boolean =
     packageManager.isAppLaunchable(packageName)
 
-fun Context.isAppEnabled(packageName: String) =
+fun Context.isAppEnabled(packageName: String): Boolean =
     packageManager.isAppEnabled(packageName)
 
-fun Context.dp(dp: Int) = dp * displayMetrics.density
+fun Context.dp(dp: Int): Float = dp * displayMetrics.density
