@@ -16,6 +16,7 @@
 
 package com.ivianuu.kommon.core.view
 
+import android.app.Application
 import android.content.ComponentName
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -109,6 +110,8 @@ fun View.toastLong(text: CharSequence): Toast =
 
 fun View.toastLong(textRes: Int, vararg args: Any): Toast =
     context.toastLong(textRes, *args)
+
+inline fun <reified T : Application> View.app(): T = context.applicationContext as T
 
 fun View.hasPermissions(vararg permissions: String): Boolean =
     context.hasPermissions(*permissions)
