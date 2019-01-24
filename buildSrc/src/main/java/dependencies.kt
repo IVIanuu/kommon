@@ -12,14 +12,17 @@ object Build {
 }
 
 object Versions {
-    const val androidGradlePlugin = "3.2.1"
-    const val androidx = "1.0.0"
+    const val androidGradlePlugin = "3.3.0"
+    const val androidxAnnotation = "1.0.0"
     const val androidxAppCompat = "1.0.2"
     const val androidxCore = "1.0.1"
+    const val androidxCoreKtx = "1.0.0"
+    const val androidxFragment = "1.0.0"
     const val androidxLifecycle = "2.0.0"
-    const val archWork = "1.0.0-alpha08"
+    const val androidxRecyclerView = "1.0.0"
+    const val androidxViewPager = "1.0.0"
     const val constraintLayout = "1.1.3"
-    const val kotlin = "1.3.11"
+    const val kotlin = "1.3.20"
     const val materialComponents = "1.0.0"
     const val mavenGradle = "2.1"
 }
@@ -27,15 +30,16 @@ object Versions {
 object Deps {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
 
-    const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidx}"
+    const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidxAnnotation}"
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
     const val androidxCore = "androidx.core:core:${Versions.androidxCore}"
-    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidx}"
-    const val androidxFragment = "androidx.fragment:fragment:${Versions.androidx}"
+    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
+    const val androidxFragment = "androidx.fragment:fragment:${Versions.androidxFragment}"
     const val androidxLifecycleExtensions =
         "androidx.lifecycle:lifecycle-extensions:${Versions.androidxLifecycle}"
-    const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidx}"
-    const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidx}"
+    const val androidxRecyclerView =
+        "androidx.recyclerview:recyclerview:${Versions.androidxRecyclerView}"
+    const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidxViewPager}"
 
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
