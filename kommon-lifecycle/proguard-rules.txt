@@ -1,2 +1,2 @@
-# Bottom navigation
+# View model store
 -keepclassmembernames class androidx.lifecycle.ViewModelStore { *; }

@@ -16,7 +16,6 @@ object Versions {
     const val androidxAnnotation = "1.0.0"
     const val androidxAppCompat = "1.0.2"
     const val androidxCore = "1.0.1"
-    const val androidxCoreKtx = "1.0.0"
     const val androidxFragment = "1.0.0"
     const val androidxLifecycle = "2.0.0"
     const val androidxRecyclerView = "1.0.0"
@@ -33,7 +32,7 @@ object Deps {
     const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidxAnnotation}"
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
     const val androidxCore = "androidx.core:core:${Versions.androidxCore}"
-    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
+    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidxFragment = "androidx.fragment:fragment:${Versions.androidxFragment}"
     const val androidxLifecycleExtensions =
         "androidx.lifecycle:lifecycle-extensions:${Versions.androidxLifecycle}"
