@@ -29,7 +29,7 @@ object Versions {
     const val bintray = "1.8.4"
     const val constraintLayout = "1.1.3"
     const val kotlin = "1.3.20"
-    const val materialComponents = "1.0.0"
+    const val materialComponents = "1.1.0-alpha02"
     const val mavenGradle = "2.1"
 }
 
