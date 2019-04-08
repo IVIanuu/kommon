@@ -18,6 +18,9 @@ package com.ivianuu.kommon.internal
 
 import android.graphics.Color
 import androidx.annotation.RestrictTo
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.round
 
 val Int.isDark: Boolean
     @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
@@ -62,7 +65,7 @@ fun Int.inverted(): Int {
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 fun Int.adjustAlpha(factor: Float): Int {
-    val alpha = round(Color.alpha(this) * factor)
+    val alpha = round(Color.alpha(this) * factor).toInt()
     val red = Color.red(this)
     val green = Color.green(this)
     val blue = Color.blue(this)
