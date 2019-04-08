@@ -21,7 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 
 fun ViewGroup.inflate(layoutResId: Int, attachToRoot: Boolean = false): View {
-    return inflate(layoutResId, attachToRoot)
+    return inflate<View>(layoutResId, attachToRoot)
 }
 
 @JvmName("inflateTyped")
