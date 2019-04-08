@@ -19,6 +19,7 @@ package com.ivianuu.kommon.core.graphics
 import android.graphics.Bitmap
 import android.util.Base64
 import java.io.ByteArrayOutputStream
+import kotlin.math.round
 
 fun Bitmap.resize(width: Int, height: Int): Bitmap {
     val srcWidth = getWidth()
@@ -34,17 +35,17 @@ fun Bitmap.resize(width: Int, height: Int): Bitmap {
             round(srcHeight / widthRatio), true
         )
         Bitmap.createBitmap(
-            scaleBitmap, 0, round((scaleBitmap.height - height) / 2.0f),
+            scaleBitmap, 0, round((scaleBitmap.height - height) / 2.0f).toInt(),
             width, height
         )
     } else {
         val scaleBitmap = Bitmap.createScaledBitmap(
-            this, round(srcWidth / heightRatio),
+            this, round(srcWidth / heightRatio).toInt(),
             height, true
         )
 
         Bitmap.createBitmap(
-            scaleBitmap, round((scaleBitmap.width - width) / 2.0f), 0,
+            scaleBitmap, round((scaleBitmap.width - width) / 2.0f).toInt(), 0,
             width, height
         )
     }
