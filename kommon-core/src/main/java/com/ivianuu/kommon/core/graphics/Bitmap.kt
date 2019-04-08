@@ -32,7 +32,7 @@ fun Bitmap.resize(width: Int, height: Int): Bitmap {
     return if (widthRatio < heightRatio) {
         val scaleBitmap = Bitmap.createScaledBitmap(
             this, width,
-            round(srcHeight / widthRatio), true
+            round(srcHeight / widthRatio).toInt(), true
         )
         Bitmap.createBitmap(
             scaleBitmap, 0, round((scaleBitmap.height - height) / 2.0f).toInt(),
