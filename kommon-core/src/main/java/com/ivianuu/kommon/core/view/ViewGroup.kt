@@ -20,8 +20,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-fun ViewGroup.inflate(id: Int, attachToRoot: Boolean): View =
-    LayoutInflater.from(context).inflate(id, this, attachToRoot)
+fun ViewGroup.inflate(layoutResId: Int, attachToRoot: Boolean = false): View {
+    return inflate(layoutResId, attachToRoot)
+}
+
+@JvmName("inflateTyped")
+fun <T : View> ViewGroup.inflate(layoutResId: Int, attachToRoot: Boolean = false): T {
+    return LayoutInflater.from(context).inflate(layoutResId, this, attachToRoot) as T
+}
 
 fun ViewGroup.doOnChildViewAdded(block: (parent: View, child: View) -> Unit): ViewGroup.OnHierarchyChangeListener =
     setOnHierarchyChangeListener(onChildViewAdded = block)

@@ -31,20 +31,20 @@ fun Bitmap.resize(width: Int, height: Int): Bitmap {
     return if (widthRatio < heightRatio) {
         val scaleBitmap = Bitmap.createScaledBitmap(
             this, width,
-            Math.round(srcHeight / widthRatio), true
+            round(srcHeight / widthRatio), true
         )
         Bitmap.createBitmap(
-            scaleBitmap, 0, Math.round((scaleBitmap.height - height) / 2.0f),
+            scaleBitmap, 0, round((scaleBitmap.height - height) / 2.0f),
             width, height
         )
     } else {
         val scaleBitmap = Bitmap.createScaledBitmap(
-            this, Math.round(srcWidth / heightRatio),
+            this, round(srcWidth / heightRatio),
             height, true
         )
 
         Bitmap.createBitmap(
-            scaleBitmap, Math.round((scaleBitmap.width - width) / 2.0f), 0,
+            scaleBitmap, round((scaleBitmap.width - width) / 2.0f), 0,
             width, height
         )
     }

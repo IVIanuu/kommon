@@ -62,7 +62,7 @@ fun Int.inverted(): Int {
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 fun Int.adjustAlpha(factor: Float): Int {
-    val alpha = Math.round(Color.alpha(this) * factor)
+    val alpha = round(Color.alpha(this) * factor)
     val red = Color.red(this)
     val green = Color.green(this)
     val blue = Color.blue(this)
@@ -71,7 +71,7 @@ fun Int.adjustAlpha(factor: Float): Int {
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 fun Int.withAlpha(alpha: Float): Int {
-    val a = Math.min(255, Math.max(0, (alpha * 255).toInt())) shl 24
+    val a = min(255, max(0, (alpha * 255).toInt())) shl 24
     val rgb = 0x00ffffff and this
     return a + rgb
 }
