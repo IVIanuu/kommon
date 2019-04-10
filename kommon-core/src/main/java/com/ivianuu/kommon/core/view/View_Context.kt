@@ -4,7 +4,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *  
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -16,7 +16,6 @@
 
 package com.ivianuu.kommon.core.view
 
-import android.app.Application
 import android.content.ComponentName
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -87,8 +86,6 @@ fun View.toastLong(text: CharSequence): Toast =
 
 fun View.toastLong(textRes: Int, vararg args: Any): Toast =
     context.toastLong(textRes, *args)
-
-inline fun <reified T : Application> View.app(): T = context.applicationContext as T
 
 fun View.hasPermissions(vararg permissions: String): Boolean =
     context.hasPermissions(*permissions)

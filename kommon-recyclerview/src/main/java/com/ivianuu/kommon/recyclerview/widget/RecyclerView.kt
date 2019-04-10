@@ -20,24 +20,6 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-inline fun <reified T : RecyclerView.Adapter<*>> RecyclerView.adapter(): T =
-    adapter as T
-
-inline fun <reified T : RecyclerView.Adapter<*>> RecyclerView.adapterOrNull(): T? = try {
-    adapter as T
-} catch (e: Exception) {
-    null
-}
-
-inline fun <reified T : RecyclerView.LayoutManager> RecyclerView.layoutManager(): T =
-    layoutManager as T
-
-inline fun <reified T : RecyclerView.LayoutManager> RecyclerView.layoutManagerOrNull(): T? = try {
-    layoutManager<T>()
-} catch (e: Exception) {
-    null
-}
-
 fun RecyclerView.doOnScrollStateChanged(block: ((recyclerView: RecyclerView, newState: Int) -> Unit)?): RecyclerView.OnScrollListener =
     addOnScrollListener(onScrollStateChanged = block)
 

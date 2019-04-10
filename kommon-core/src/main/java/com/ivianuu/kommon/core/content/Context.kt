@@ -16,7 +16,6 @@
 
 package com.ivianuu.kommon.core.content
 
-import android.app.Application
 import android.content.*
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -126,8 +125,6 @@ fun Context.toastLong(text: CharSequence): Toast =
 
 fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
     Toast.makeText(this, string(textRes, *args), Toast.LENGTH_LONG).apply { show() }
-
-inline fun <reified T : Application> Context.app(): T = applicationContext as T
 
 inline fun <reified T> Context.componentName(): ComponentName = ComponentName(this, T::class.java)
 

@@ -16,14 +16,9 @@
 
 package com.ivianuu.kommon.fragment.app
 
-import android.app.Activity
-import android.app.Application
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.ivianuu.kommon.core.content.app
-
-inline fun <reified T : Activity> Fragment.activity(): T = requireActivity() as T
 
 fun Fragment.requireArgs(): Bundle =
     arguments ?: throw IllegalStateException("no arguments provided")
@@ -35,21 +30,3 @@ fun Fragment.requireTargetFragment(): Fragment =
     targetFragment ?: throw IllegalStateException("target fragment is null")
 
 fun Fragment.requireView(): View = view ?: throw IllegalStateException("view is null")
-
-inline fun <reified T : Fragment> Fragment.parentFragment(): T = requireParentFragment() as T
-
-inline fun <reified T : Fragment> Fragment.parentFragmentOrNull(): T? = try {
-    parentFragment<T>()
-} catch (e: Exception) {
-    null
-}
-
-inline fun <reified T : Fragment> Fragment.targetFragment(): T = requireTargetFragment() as T
-
-inline fun <reified T : Fragment> Fragment.targetFragmentOrNull(): T? = try {
-    targetFragment<T>()
-} catch (e: Exception) {
-    null
-}
-
-inline fun <reified T : Application> Fragment.app(): T = requireContext().app<T>()
