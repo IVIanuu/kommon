@@ -43,18 +43,24 @@ fun Snackbar.addCallback(
     return callback
 }
 
-private val snackbarInitStub: Snackbar.() -> Unit = {}
-
 fun View.snackbar(
     textRes: Int,
     length: Int = Snackbar.LENGTH_LONG,
-    block: Snackbar.() -> Unit = snackbarInitStub
-): Snackbar =
-    Snackbar.make(this, textRes, length).apply(block).apply { show() }
+    block: (Snackbar.() -> Unit)? = null
+): Snackbar {
+    return Snackbar.make(this, textRes, length).apply {
+        block?.invoke(this)
+        show()
+    }
+}
 
 fun View.snackbar(
     text: CharSequence,
     length: Int = Snackbar.LENGTH_LONG,
-    block: Snackbar.() -> Unit = snackbarInitStub
-): Snackbar =
-    Snackbar.make(this, text, length).apply(block).apply { show() }
+    block: (Snackbar.() -> Unit)? = null
+): Snackbar {
+    return Snackbar.make(this, text, length).apply {
+        block?.invoke(this)
+        show()
+    }
+}

@@ -18,14 +18,12 @@ package com.ivianuu.kommon.lifecycle
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStore
-import java.lang.reflect.Field
 
-private var mMapField: Field? = null
+private val mMapField by lazy {
+    val field = ViewModelStore::class.java.getDeclaredField("mMap")
+    field.isAccessible = true
+    field
+}
 
 val ViewModelStore.viewModels: Map<String, ViewModel>
-    get() {
-        val field = mMapField ?: ViewModelStore::class.java.getDeclaredField("mMap")
-            .apply { isAccessible = true }
-            .also { mMapField = it }
-        return field.get(this) as Map<String, out ViewModel>
-    }
+    get() = mMapField.get(this) as Map<String, out ViewModel>
