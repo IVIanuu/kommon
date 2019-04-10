@@ -21,16 +21,16 @@ import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
 
-inline val Configuration.isRtl: Boolean
+val Configuration.isRtl: Boolean
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() = layoutDirection == View.LAYOUT_DIRECTION_RTL
 
-inline val Configuration.isLtr: Boolean
+val Configuration.isLtr: Boolean
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() = layoutDirection == View.LAYOUT_DIRECTION_LTR
 
-inline val Configuration.isPortrait: Boolean
+val Configuration.isPortrait: Boolean
     get() = orientation == Configuration.ORIENTATION_PORTRAIT
 
-inline val Configuration.isLandscape: Boolean
+val Configuration.isLandscape: Boolean
     get() = orientation == Configuration.ORIENTATION_LANDSCAPE

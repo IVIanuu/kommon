@@ -17,7 +17,6 @@ include(
     ":kommon-appcompat",
     ":kommon-core",
     ":kommon-fragment",
-    ":kommon-internal",
     ":kommon-lifecycle",
     ":kommon-material",
     ":kommon-recyclerview",

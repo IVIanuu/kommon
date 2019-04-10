@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/kommon-appcompat" />
             <option value="$PROJECT_DIR$/kommon-core" />
             <option value="$PROJECT_DIR$/kommon-fragment" />
-            <option value="$PROJECT_DIR$/kommon-internal" />
             <option value="$PROJECT_DIR$/kommon-lifecycle" />
             <option value="$PROJECT_DIR$/kommon-material" />
             <option value="$PROJECT_DIR$/kommon-recyclerview" />

@@ -1,7 +1,3 @@
-import org.gradle.jvm.tasks.Jar
-import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
-import java.io.File
-
 /*
  * Copyright 2018 Manuel Wrage
  *
@@ -37,5 +33,4 @@ apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/mv
 dependencies {
     api(Deps.androidxCore)
     api(Deps.androidxCoreKtx)
-    api(project(":kommon-internal"))
 }

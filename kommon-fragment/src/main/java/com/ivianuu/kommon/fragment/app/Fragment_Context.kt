@@ -22,71 +22,48 @@ import android.content.res.Configuration
 import android.util.DisplayMetrics
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.ivianuu.kommon.core.content.batteryLevel
-import com.ivianuu.kommon.core.content.componentName
-import com.ivianuu.kommon.core.content.configuration
-import com.ivianuu.kommon.core.content.defaultSharedPreferences
-import com.ivianuu.kommon.core.content.displayMetrics
-import com.ivianuu.kommon.core.content.dp
-import com.ivianuu.kommon.core.content.hasPermissions
-import com.ivianuu.kommon.core.content.isAppEnabled
-import com.ivianuu.kommon.core.content.isAppInstalled
-import com.ivianuu.kommon.core.content.isAppLaunchable
-import com.ivianuu.kommon.core.content.isCharging
-import com.ivianuu.kommon.core.content.isLandscape
-import com.ivianuu.kommon.core.content.isPortrait
-import com.ivianuu.kommon.core.content.isScreenOff
-import com.ivianuu.kommon.core.content.isScreenOn
-import com.ivianuu.kommon.core.content.realScreenHeight
-import com.ivianuu.kommon.core.content.realScreenWidth
-import com.ivianuu.kommon.core.content.rotation
-import com.ivianuu.kommon.core.content.screenHeight
-import com.ivianuu.kommon.core.content.screenWidth
-import com.ivianuu.kommon.core.content.systemService
-import com.ivianuu.kommon.core.content.systemServiceOrNull
-import com.ivianuu.kommon.core.content.toastLong
-import com.ivianuu.kommon.core.content.toastShort
+import com.ivianuu.kommon.core.content.*
 
-inline val Fragment.configuration: Configuration
+val Fragment.configuration: Configuration
     get() = requireContext().configuration
 
-inline val Fragment.displayMetrics: DisplayMetrics
+val Fragment.displayMetrics: DisplayMetrics
     get() = requireContext().displayMetrics
 
-inline val Fragment.defaultSharedPreferences: SharedPreferences
+val Fragment.defaultSharedPreferences: SharedPreferences
     get() = requireContext().defaultSharedPreferences
 
-inline val Fragment.rotation: Int
+val Fragment.rotation: Int
     get() = requireContext().rotation
 
-inline val Fragment.isPortrait: Boolean
+val Fragment.isPortrait: Boolean
     get() = requireContext().isPortrait
 
-inline val Fragment.isLandscape: Boolean
+val Fragment.isLandscape: Boolean
     get() = requireContext().isLandscape
 
-inline val Fragment.screenWidth: Int
+val Fragment.screenWidth: Int
     get() = requireContext().screenWidth
 
-inline val Fragment.screenHeight: Int
+val Fragment.screenHeight: Int
     get() = requireContext().screenHeight
 
-inline val Fragment.realScreenWidth: Int
+val Fragment.realScreenWidth: Int
     get() = requireContext().realScreenWidth
 
-inline val Fragment.realScreenHeight: Int
+val Fragment.realScreenHeight: Int
     get() = requireContext().realScreenHeight
 
-inline val Fragment.isScreenOn: Boolean
+val Fragment.isScreenOn: Boolean
     get() = requireContext().isScreenOn
 
-inline val Fragment.isScreenOff: Boolean
+val Fragment.isScreenOff: Boolean
     get() = requireContext().isScreenOff
 
-inline val Fragment.isCharging: Boolean
+val Fragment.isCharging: Boolean
     get() = requireContext().isCharging
 
-inline val Fragment.batteryLevel: Int
+val Fragment.batteryLevel: Int
     get() = requireContext().batteryLevel
 
 inline fun <reified T> Fragment.componentName(): ComponentName =

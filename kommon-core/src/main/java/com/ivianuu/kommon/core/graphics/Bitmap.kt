@@ -51,11 +51,8 @@ fun Bitmap.resize(width: Int, height: Int): Bitmap {
     }
 }
 
-fun Bitmap.toBase64(): String {
-    val byteArrayOutputStream = ByteArrayOutputStream()
-    compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-    val b = byteArrayOutputStream.toByteArray()
-    return Base64.encodeToString(b, Base64.DEFAULT)
+fun Bitmap.toBase64String(): String {
+    return Base64.encodeToString(toByteArray(), Base64.DEFAULT)
 }
 
 fun Bitmap.toByteArray(compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG): ByteArray {

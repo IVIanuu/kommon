@@ -23,71 +23,48 @@ import android.content.res.Configuration
 import android.util.DisplayMetrics
 import android.view.View
 import android.widget.Toast
-import com.ivianuu.kommon.core.content.batteryLevel
-import com.ivianuu.kommon.core.content.componentName
-import com.ivianuu.kommon.core.content.configuration
-import com.ivianuu.kommon.core.content.defaultSharedPreferences
-import com.ivianuu.kommon.core.content.displayMetrics
-import com.ivianuu.kommon.core.content.dp
-import com.ivianuu.kommon.core.content.hasPermissions
-import com.ivianuu.kommon.core.content.isAppEnabled
-import com.ivianuu.kommon.core.content.isAppInstalled
-import com.ivianuu.kommon.core.content.isAppLaunchable
-import com.ivianuu.kommon.core.content.isCharging
-import com.ivianuu.kommon.core.content.isLandscape
-import com.ivianuu.kommon.core.content.isPortrait
-import com.ivianuu.kommon.core.content.isScreenOff
-import com.ivianuu.kommon.core.content.isScreenOn
-import com.ivianuu.kommon.core.content.realScreenHeight
-import com.ivianuu.kommon.core.content.realScreenWidth
-import com.ivianuu.kommon.core.content.rotation
-import com.ivianuu.kommon.core.content.screenHeight
-import com.ivianuu.kommon.core.content.screenWidth
-import com.ivianuu.kommon.core.content.systemService
-import com.ivianuu.kommon.core.content.systemServiceOrNull
-import com.ivianuu.kommon.core.content.toastLong
-import com.ivianuu.kommon.core.content.toastShort
+import com.ivianuu.kommon.core.content.*
 
-inline val View.configuration: Configuration
+val View.configuration: Configuration
     get() = context.configuration
 
-inline val View.displayMetrics: DisplayMetrics
+val View.displayMetrics: DisplayMetrics
     get() = context.displayMetrics
 
-inline val View.defaultSharedPreferences: SharedPreferences
+val View.defaultSharedPreferences: SharedPreferences
     get() = context.defaultSharedPreferences
 
-inline val View.rotation: Int
+val View.rotation: Int
     get() = context.rotation
 
-inline val View.isPortrait: Boolean
+val View.isPortrait: Boolean
     get() = context.isPortrait
 
-inline val View.isLandscape: Boolean
+val View.isLandscape: Boolean
     get() = context.isLandscape
 
-inline val View.screenWidth: Int
+val View.screenWidth: Int
     get() = context.screenWidth
 
-inline val View.screenHeight: Int
+val View.screenHeight: Int
     get() = context.screenHeight
 
-inline val View.realScreenWidth: Int
+val View.realScreenWidth: Int
     get() = context.realScreenWidth
 
-inline val View.realScreenHeight: Int
+val View.realScreenHeight: Int
     get() = context.realScreenHeight
 
-inline val View.isScreenOn: Boolean
+val View.isScreenOn: Boolean
     get() = context.isScreenOn
 
-inline val View.isScreenOff: Boolean
+val View.isScreenOff: Boolean
     get() = context.isScreenOff
 
-inline val View.isCharging: Boolean
+val View.isCharging: Boolean
     get() = context.isCharging
 
-inline val View.batteryLevel: Int
+val View.batteryLevel: Int
     get() = context.batteryLevel
 
 inline fun <reified T> View.componentName(): ComponentName =

@@ -18,10 +18,10 @@ package com.ivianuu.kommon.material.floatingactionbutton
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-fun FloatingActionButton.show(show: Boolean) {
+fun FloatingActionButton.showIf(show: Boolean) {
     if (show) show() else hide()
 }
 
-fun FloatingActionButton.hide(hide: Boolean) {
+fun FloatingActionButton.hideIf(hide: Boolean) {
     if (hide) hide() else show()
 }

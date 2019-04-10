@@ -18,7 +18,14 @@ package com.ivianuu.kommon.lifecycle
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStore
-import com.ivianuu.kommon.internal.field
+import java.lang.reflect.Field
+
+private var mMapField: Field? = null
 
 val ViewModelStore.viewModels: Map<String, ViewModel>
-    get() = ViewModelStore::class.field("mMap")[this] as Map<String, out ViewModel>
+    get() {
+        val field = mMapField ?: ViewModelStore::class.java.getDeclaredField("mMap")
+            .apply { isAccessible = true }
+            .also { mMapField = it }
+        return field.get(this) as Map<String, out ViewModel>
+    }

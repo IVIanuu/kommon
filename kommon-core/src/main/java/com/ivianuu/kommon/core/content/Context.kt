@@ -17,14 +17,10 @@
 package com.ivianuu.kommon.core.content
 
 import android.app.Application
-import android.content.BroadcastReceiver
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.content.SharedPreferences
+import android.content.*
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.os.BatteryManager
 import android.os.Build
 import android.os.PowerManager
 import android.util.DisplayMetrics
@@ -37,50 +33,49 @@ import com.ivianuu.kommon.core.content.pm.isAppInstalled
 import com.ivianuu.kommon.core.content.pm.isAppLaunchable
 import com.ivianuu.kommon.core.content.res.isLandscape
 import com.ivianuu.kommon.core.content.res.isPortrait
-import com.ivianuu.kommon.internal.BatteryUtil
 
 @PublishedApi
 internal val _displayMetrics = DisplayMetrics()
 
-inline val Context.configuration: Configuration
+val Context.configuration: Configuration
     get() = resources.configuration
 
-inline val Context.defaultSharedPreferences: SharedPreferences
+val Context.defaultSharedPreferences: SharedPreferences
     get() = getSharedPreferences(packageName + "_preferences", Context.MODE_PRIVATE)
 
-inline val Context.displayMetrics: DisplayMetrics
+val Context.displayMetrics: DisplayMetrics
     get() = resources.displayMetrics
 
-inline val Context.rotation: Int
+val Context.rotation: Int
     get() = systemService<WindowManager>().defaultDisplay.rotation
 
-inline val Context.isPortrait: Boolean
+val Context.isPortrait: Boolean
     get() = configuration.isPortrait
 
-inline val Context.isLandscape: Boolean
+val Context.isLandscape: Boolean
     get() = configuration.isLandscape
 
-inline val Context.screenWidth: Int
+val Context.screenWidth: Int
     get() = displayMetrics.widthPixels
 
-inline val Context.screenHeight: Int
+val Context.screenHeight: Int
     get() = displayMetrics.heightPixels
 
-inline val Context.realScreenWidth: Int
+val Context.realScreenWidth: Int
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() {
         systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
         return _displayMetrics.widthPixels
     }
 
-inline val Context.realScreenHeight: Int
+val Context.realScreenHeight: Int
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() {
         systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
         return _displayMetrics.heightPixels
     }
 
-inline val Context.isScreenOn: Boolean
+val Context.isScreenOn: Boolean
     get() {
         val pm = systemService<PowerManager>()
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -90,14 +85,35 @@ inline val Context.isScreenOn: Boolean
         }
     }
 
-inline val Context.isScreenOff: Boolean
+val Context.isScreenOff: Boolean
     get() = !isScreenOn
 
-inline val Context.isCharging: Boolean
-    get() = BatteryUtil.isCharging(this)
+val Context.isCharging: Boolean
+    get() {
+        val intent = registerReceiver(
+            null,
+            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        ) ?: return false
+        val plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
+        return plugged == BatteryManager.BATTERY_PLUGGED_AC
+                || plugged == BatteryManager.BATTERY_PLUGGED_USB
+                || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS
+    }
 
-inline val Context.batteryLevel: Int
-    get() = BatteryUtil.getBatteryLevel(this)
+val Context.batteryLevel: Int
+    get() {
+        val batteryIntent = registerReceiver(
+            null,
+            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        ) ?: return -1
+        val level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
+        val scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+
+        return if (level == -1 || scale == -1) {
+            -1
+        } else
+            (level.toFloat() / scale.toFloat() * 100.0f).toInt()
+    }
 
 fun Context.toastShort(text: CharSequence): Toast =
     Toast.makeText(this, text, Toast.LENGTH_SHORT).apply { show() }

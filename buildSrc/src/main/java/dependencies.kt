@@ -14,7 +14,7 @@ object Build {
 object Publishing {
     const val groupId = "com.ivianuu.kommon"
     const val vcsUrl = "https://github.com/IVIanuu/kommon"
-    const val version = "${Build.versionName}-dev-4"
+    const val version = "${Build.versionName}-dev-5"
 }
 
 object Versions {
@@ -29,7 +29,7 @@ object Versions {
     const val bintray = "1.8.4"
     const val constraintLayout = "1.1.3"
     const val kotlin = "1.3.21"
-    const val materialComponents = "1.1.0-alpha02"
+    const val materialComponents = "1.1.0-alpha05"
     const val mavenGradle = "2.1"
 }
 
