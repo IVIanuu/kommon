@@ -22,24 +22,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
-inline fun <reified T : Fragment> FragmentManager.fragmentById(id: Int): T =
-    findFragmentById(id) as T
-
-inline fun <reified T : Fragment> FragmentManager.fragmentByIdOrNull(id: Int): T? = try {
-    fragmentById<T>(id)
-} catch (e: Exception) {
-    null
-}
-
-inline fun <reified T : Fragment> FragmentManager.fragmentByTag(tag: String): T =
-    findFragmentByTag(tag) as T
-
-inline fun <reified T : Fragment> FragmentManager.fragmentByIdOrNull(tag: String): T? = try {
-    fragmentByTag<T>(tag)
-} catch (e: Exception) {
-    null
-}
-
 fun FragmentManager.doOnFragmentPreAttached(
     recursive: Boolean = false,
     block: (fm: FragmentManager, f: Fragment, context: Context) -> Unit
