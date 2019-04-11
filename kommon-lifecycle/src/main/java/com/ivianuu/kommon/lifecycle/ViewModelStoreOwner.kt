@@ -30,7 +30,7 @@ inline fun <reified T : ViewModel> ViewModelStoreOwner.getViewModel(
 ): T = viewModelProvider(factory).get(key, T::class.java)
 
 inline fun <reified T : ViewModel> ViewModelStoreOwner.viewModel(
-    crossinline keyProvider: () -> String = T::class::defaultViewModelKey,
+    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
     crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ): Lazy<ViewModel> =
     lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(factoryProvider(), keyProvider()) }

@@ -17,5 +17,5 @@
 import android.content.IntentFilter
 
 fun intentFilterOf(vararg actions: String): IntentFilter = IntentFilter().apply {
-    actions.forEach(this::addAction)
+    actions.forEach { addAction(it) }
 }

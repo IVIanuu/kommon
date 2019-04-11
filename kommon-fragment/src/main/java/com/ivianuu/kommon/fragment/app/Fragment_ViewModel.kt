@@ -28,7 +28,7 @@ inline fun <reified T : ViewModel> Fragment.getActivityViewModel(
 ): T = requireActivity().getViewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.activityViewModel(
-    crossinline keyProvider: () -> String = T::class::defaultViewModelKey,
+    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
     crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ): Lazy<ViewModel> =
     lazy(LazyThreadSafetyMode.NONE) { getActivityViewModel<T>(factoryProvider(), keyProvider()) }
@@ -39,7 +39,7 @@ inline fun <reified T : ViewModel> Fragment.getParentViewModel(
 ): T = requireParentFragment().getViewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.parentViewModel(
-    crossinline keyProvider: () -> String = T::class::defaultViewModelKey,
+    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
     crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ): Lazy<ViewModel> =
     lazy(LazyThreadSafetyMode.NONE) { getParentViewModel<T>(factoryProvider(), keyProvider()) }
@@ -50,7 +50,7 @@ inline fun <reified T : ViewModel> Fragment.getTargetViewModel(
 ): T = requireTargetFragment().getViewModel<T>(factory, key)
 
 inline fun <reified T : ViewModel> Fragment.targetViewModel(
-    crossinline keyProvider: () -> String = T::class::defaultViewModelKey,
+    crossinline keyProvider: () -> String = { T::class.defaultViewModelKey },
     crossinline factoryProvider: () -> ViewModelProvider.Factory = { ViewModelProvider.NewInstanceFactory() }
 ): Lazy<ViewModel> =
     lazy(LazyThreadSafetyMode.NONE) { getTargetViewModel<T>(factoryProvider(), keyProvider()) }
