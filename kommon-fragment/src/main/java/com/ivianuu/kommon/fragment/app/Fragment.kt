@@ -23,10 +23,5 @@ import androidx.fragment.app.Fragment
 fun Fragment.requireArgs(): Bundle =
     arguments ?: throw IllegalStateException("no arguments provided")
 
-fun Fragment.requireParentFragment(): Fragment =
-    parentFragment ?: throw IllegalStateException("parent fragment is null")
-
 fun Fragment.requireTargetFragment(): Fragment =
     targetFragment ?: throw IllegalStateException("target fragment is null")
-
-fun Fragment.requireView(): View = view ?: throw IllegalStateException("view is null")

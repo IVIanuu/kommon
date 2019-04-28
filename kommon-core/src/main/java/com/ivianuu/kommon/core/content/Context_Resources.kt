@@ -29,7 +29,6 @@ import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
-
 fun Context.anim(id: Int): Animation = AnimationUtils.loadAnimation(this, id)
 
 fun Context.intArray(id: Int): IntArray = resources.getIntArray(id)
@@ -50,12 +49,7 @@ fun Context.dimenPx(id: Int): Int = resources.getDimensionPixelSize(id)
 
 fun Context.dimenPxOffset(id: Int): Int = resources.getDimensionPixelOffset(id)
 
-fun Context.float(id: Int): Float {
-    // todo use ResourcesCompat.getFloat
-    val value = TypedValue()
-    resources.getValue(id, value, true)
-    return value.float
-}
+fun Context.float(id: Int): Float = ResourcesCompat.getFloat(resources, id)
 
 fun Context.int(id: Int): Int = resources.getInteger(id)
 

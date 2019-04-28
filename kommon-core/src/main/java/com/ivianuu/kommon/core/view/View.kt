@@ -19,8 +19,6 @@ package com.ivianuu.kommon.core.view
 import android.view.View
 import android.view.ViewParent
 
-fun <T : ViewParent> View.parent() = parent as T
-
 fun <T> View.tag() = tag as T
 
 fun <T> View.tagOrNull() = tag as? T
@@ -39,14 +37,6 @@ inline fun <T> View.getTagOrSet(key: Int, defaultValue: () -> T) =
 fun <T> View.getTagOrDefault(defaultValue: T) = tagOrNull<T>() ?: defaultValue
 
 fun <T> View.getTagOrDefault(key: Int, defaultValue: T) = tagOrNull<T>(key) ?: defaultValue
-
-fun View.onClick(onClick: (View) -> Unit) {
-    setOnClickListener(onClick)
-}
-
-fun View.onLongClick(onLongClick: (View) -> Boolean) {
-    setOnLongClickListener(onLongClick)
-}
 
 fun View.doOnAttachedToWindow(block: (v: View) -> Unit): View.OnAttachStateChangeListener =
     addOnAttachStateChangeListener(onViewAttachedToWindow = block)

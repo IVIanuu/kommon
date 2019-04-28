@@ -33,99 +33,6 @@ import com.ivianuu.kommon.core.content.pm.isAppLaunchable
 import com.ivianuu.kommon.core.content.res.isLandscape
 import com.ivianuu.kommon.core.content.res.isPortrait
 
-@PublishedApi
-internal val _displayMetrics = DisplayMetrics()
-
-val Context.configuration: Configuration
-    get() = resources.configuration
-
-val Context.defaultSharedPreferences: SharedPreferences
-    get() = getSharedPreferences(packageName + "_preferences", Context.MODE_PRIVATE)
-
-val Context.displayMetrics: DisplayMetrics
-    get() = resources.displayMetrics
-
-val Context.rotation: Int
-    get() = systemService<WindowManager>().defaultDisplay.rotation
-
-val Context.isPortrait: Boolean
-    get() = configuration.isPortrait
-
-val Context.isLandscape: Boolean
-    get() = configuration.isLandscape
-
-val Context.screenWidth: Int
-    get() = displayMetrics.widthPixels
-
-val Context.screenHeight: Int
-    get() = displayMetrics.heightPixels
-
-val Context.realScreenWidth: Int
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    get() {
-        systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
-        return _displayMetrics.widthPixels
-    }
-
-val Context.realScreenHeight: Int
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    get() {
-        systemService<WindowManager>().defaultDisplay.getRealMetrics(_displayMetrics)
-        return _displayMetrics.heightPixels
-    }
-
-val Context.isScreenOn: Boolean
-    get() {
-        val pm = systemService<PowerManager>()
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            pm.isInteractive
-        } else {
-            pm.isScreenOn
-        }
-    }
-
-val Context.isScreenOff: Boolean
-    get() = !isScreenOn
-
-val Context.isCharging: Boolean
-    get() {
-        val intent = registerReceiver(
-            null,
-            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-        ) ?: return false
-        val plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
-        return plugged == BatteryManager.BATTERY_PLUGGED_AC
-                || plugged == BatteryManager.BATTERY_PLUGGED_USB
-                || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS
-    }
-
-val Context.batteryLevel: Int
-    get() {
-        val batteryIntent = registerReceiver(
-            null,
-            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-        ) ?: return -1
-        val level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-        val scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
-
-        return if (level == -1 || scale == -1) {
-            -1
-        } else
-            (level.toFloat() / scale.toFloat() * 100.0f).toInt()
-    }
-
-fun Context.toastShort(text: CharSequence): Toast =
-    Toast.makeText(this, text, Toast.LENGTH_SHORT).apply { show() }
-
-fun Context.toastShort(textRes: Int, vararg args: Any): Toast =
-    Toast.makeText(this, string(textRes, *args), Toast.LENGTH_SHORT).apply { show() }
-
-fun Context.toastLong(text: CharSequence): Toast =
-    Toast.makeText(this, text, Toast.LENGTH_LONG).apply { show() }
-
-fun Context.toastLong(textRes: Int, vararg args: Any): Toast =
-    Toast.makeText(this, string(textRes, *args), Toast.LENGTH_LONG).apply { show() }
-
 inline fun <reified T> Context.componentName(): ComponentName = ComponentName(this, T::class.java)
 
 fun Context.componentName(className: String): ComponentName =
@@ -165,13 +72,4 @@ fun Context.hasPermissions(vararg permissions: String): Boolean {
     }
 }
 
-fun Context.isAppInstalled(packageName: String): Boolean =
-    packageManager.isAppInstalled(packageName)
-
-fun Context.isAppLaunchable(packageName: String): Boolean =
-    packageManager.isAppLaunchable(packageName)
-
-fun Context.isAppEnabled(packageName: String): Boolean =
-    packageManager.isAppEnabled(packageName)
-
-fun Context.dp(dp: Int): Float = dp * displayMetrics.density
+fun Context.dp(dp: Int): Float = dp * resources.displayMetrics.density

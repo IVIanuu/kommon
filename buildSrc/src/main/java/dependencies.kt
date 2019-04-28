@@ -18,7 +18,7 @@ object Publishing {
 }
 
 object Versions {
-    const val androidGradlePlugin = "3.3.0"
+    const val androidGradlePlugin = "3.4.0"
     const val androidxAnnotation = "1.1.0-beta01"
     const val androidxAppCompat = "1.1.0-alpha04"
     const val androidxCore = "1.1.0-alpha05"
