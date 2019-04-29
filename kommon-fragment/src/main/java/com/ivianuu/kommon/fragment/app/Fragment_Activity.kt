@@ -16,16 +16,10 @@
 
 package com.ivianuu.kommon.fragment.app
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Build
-import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.ivianuu.kommon.core.app.hideInputMethod
 import com.ivianuu.kommon.core.app.showInputMethod
-import com.ivianuu.kommon.core.app.startActivityForResult
 
 fun Fragment.hideInputMethod() {
     requireActivity().hideInputMethod()
@@ -33,21 +27,4 @@ fun Fragment.hideInputMethod() {
 
 fun Fragment.showInputMethod(view: View, flags: Int = 0) {
     requireActivity().showInputMethod(view, flags)
-}
-
-@RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
-inline fun <reified T : Activity> Fragment.startActivityForResult(
-    requestCode: Int,
-    options: Bundle? = null
-) {
-    requireActivity().startActivityForResult<T>(requestCode, options)
-}
-
-@RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
-inline fun <reified T : Activity> Fragment.startActivityForResult(
-    requestCode: Int,
-    options: Bundle? = null,
-    init: Intent.() -> Unit
-) {
-    requireActivity().startActivityForResult<T>(requestCode, options, init)
 }

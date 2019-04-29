@@ -30,6 +30,6 @@ fun PackageManager.isAppLaunchable(packageName: String): Boolean =
 
 fun PackageManager.isAppEnabled(packageName: String): Boolean = try {
     getApplicationInfo(packageName, 0).enabled
-} catch (e: Exception) {
+} catch (e: PackageManager.NameNotFoundException) {
     false
 }
