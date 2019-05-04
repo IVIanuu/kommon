@@ -28,8 +28,8 @@ object Versions {
     const val androidxViewPager = "1.0.0"
     const val bintray = "1.8.4"
     const val constraintLayout = "2.0.0-alpha3"
-    const val kotlin = "1.3.30"
-    const val materialComponents = "1.1.0-alpha05"
+    const val kotlin = "1.3.31"
+    const val materialComponents = "1.1.0-alpha06"
     const val mavenGradle = "2.1"
 }
 
