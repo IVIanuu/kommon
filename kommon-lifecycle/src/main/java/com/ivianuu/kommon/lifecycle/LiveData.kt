@@ -16,12 +16,6 @@
 
 package com.ivianuu.kommon.lifecycle
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-
-fun <T> LiveData<T>.observeK(owner: LifecycleOwner, onChanged: (T) -> Unit) {
-    observe(owner, Observer<T> { it?.let(onChanged) })
-}
+import androidx.lifecycle.*
 
 fun <T> LiveData<T>.requireValue(): T = value ?: throw IllegalStateException("value is null")

@@ -24,6 +24,7 @@ apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/kt
 apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/mvn-publish.gradle")
 
 dependencies {
-    api(Deps.androidxLifecycleExtensions)
+    api(Deps.androidxLifecycleLiveData)
+    api(Deps.androidxLifecycleViewModel)
     api(project(":kommon-core"))
 }

@@ -19,15 +19,14 @@ object Publishing {
 
 object Versions {
     const val androidGradlePlugin = "3.4.0"
-    const val androidxAnnotation = "1.1.0-beta01"
-    const val androidxAppCompat = "1.1.0-alpha04"
+    const val androidxAppCompat = "1.1.0-alpha05"
     const val androidxCore = "1.1.0-alpha05"
-    const val androidxFragment = "1.1.0-alpha06"
-    const val androidxLifecycle = "2.1.0-alpha04"
-    const val androidxRecyclerView = "1.1.0-alpha04"
+    const val androidxFragment = "1.1.0-alpha08"
+    const val androidxLifecycle = "2.2.0-alpha01"
+    const val androidxRecyclerView = "1.1.0-alpha05"
     const val androidxViewPager = "1.0.0"
     const val bintray = "1.8.4"
-    const val constraintLayout = "2.0.0-alpha3"
+    const val constraintLayout = "2.0.0-beta3"
     const val kotlin = "1.3.31"
     const val materialComponents = "1.1.0-alpha06"
     const val mavenGradle = "2.1"
@@ -36,13 +35,11 @@ object Versions {
 object Deps {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
 
-    const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidxAnnotation}"
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
-    const val androidxCore = "androidx.core:core:${Versions.androidxCore}"
-    const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCore}"
-    const val androidxFragment = "androidx.fragment:fragment:${Versions.androidxFragment}"
-    const val androidxLifecycleExtensions =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.androidxLifecycle}"
+    const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
+    const val androidxFragment = "androidx.fragment:fragment-ktx:${Versions.androidxFragment}"
+    const val androidxLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidxLifecycle}"
+    const val androidxLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
     const val androidxRecyclerView =
         "androidx.recyclerview:recyclerview:${Versions.androidxRecyclerView}"
     const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidxViewPager}"

@@ -32,5 +32,4 @@ apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/mv
 
 dependencies {
     api(Deps.androidxCore)
-    api(Deps.androidxCoreKtx)
 }
