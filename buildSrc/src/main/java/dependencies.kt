@@ -14,7 +14,7 @@ object Build {
 object Publishing {
     const val groupId = "com.ivianuu.kommon"
     const val vcsUrl = "https://github.com/IVIanuu/kommon"
-    const val version = "${Build.versionName}-dev-8"
+    const val version = "${Build.versionName}-dev-10"
 }
 
 object Versions {
@@ -23,7 +23,7 @@ object Versions {
     const val androidxCore = "1.1.0-alpha05"
     const val androidxFragment = "1.1.0-alpha08"
     const val androidxLifecycle = "2.2.0-alpha01"
-    const val androidxRecyclerView = "1.1.0-alpha05"
+    const val androidxRecyclerView = "1.1.0-alpha04"
     const val androidxViewPager = "1.0.0"
     const val bintray = "1.8.4"
     const val constraintLayout = "2.0.0-beta3"
