@@ -17,8 +17,8 @@
 package androidx.fragment.app
 
 internal fun FragmentTransaction.addSharedElementImpl(
-    src: String,
-    target: String
+    srcName: String,
+    targetName: String
 ): FragmentTransaction {
     if (FragmentTransition.supportsTransition() && this is BackStackRecord) {
         when {
@@ -26,20 +26,20 @@ internal fun FragmentTransaction.addSharedElementImpl(
                 mSharedElementSourceNames = ArrayList()
                 mSharedElementTargetNames = ArrayList()
             }
-            mSharedElementTargetNames.contains(target) -> {
+            mSharedElementTargetNames.contains(targetName) -> {
                 throw IllegalArgumentException(
-                    "A shared element with the target name '$target' has already been added to the transaction."
+                    "A shared element with the targetName name '$targetName' has already been added to the transaction."
                 )
             }
-            mSharedElementSourceNames.contains(src) -> {
+            mSharedElementSourceNames.contains(srcName) -> {
                 throw IllegalArgumentException(
-                    "A shared element with the source name '$src' has already been added to the transaction."
+                    "A shared element with the source name '$srcName' has already been added to the transaction."
                 )
             }
         }
 
-        mSharedElementSourceNames.add(src)
-        mSharedElementTargetNames.add(target)
+        mSharedElementSourceNames.add(srcName)
+        mSharedElementTargetNames.add(targetName)
     }
 
     return this

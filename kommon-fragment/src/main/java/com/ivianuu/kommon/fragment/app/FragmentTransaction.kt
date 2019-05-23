@@ -19,7 +19,11 @@ package com.ivianuu.kommon.fragment.app
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.addSharedElementImpl
 
+fun FragmentTransaction.addSharedElement(name: String) {
+    addSharedElement(name, name)
+}
+
 fun FragmentTransaction.addSharedElement(
-    srcTransitionName: String,
-    targetTransitionName: String
-): FragmentTransaction = addSharedElementImpl(srcTransitionName, targetTransitionName)
+    srcName: String,
+    targetName: String
+): FragmentTransaction = addSharedElementImpl(srcName, targetName)
