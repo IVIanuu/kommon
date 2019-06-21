@@ -25,22 +25,22 @@ import android.os.Bundle
 fun Application.doOnActivityCreated(block: (activity: Activity, savedInstanceState: Bundle?) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityCreated = block)
 
-fun Application.doOnActivityStarted(block: (activity: Activity) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivityStarted(block: (activity: Activity) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityStarted = block)
 
-fun Application.doOnActivityResumed(block: (activity: Activity) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivityResumed(block: (activity: Activity) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityResumed = block)
 
-fun Application.doOnActivityPaused(block: (activity: Activity) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivityPaused(block: (activity: Activity) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityPaused = block)
 
-fun Application.doOnActivityStopped(block: (activity: Activity) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivityStopped(block: (activity: Activity) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityStopped = block)
 
-fun Application.doOnActivitySaveInstanceState(block: (activity: Activity, outState: Bundle) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivitySaveInstanceState(block: (activity: Activity, outState: Bundle) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivitySaveInstanceState = block)
 
-fun Application.doOnActivityDestroyed(block: (activity: Activity) ->Unit): Application.ActivityLifecycleCallbacks =
+fun Application.doOnActivityDestroyed(block: (activity: Activity) -> Unit): Application.ActivityLifecycleCallbacks =
     registerActivityLifecycleCallbacks(onActivityDestroyed = block)
 
 fun Application.registerActivityLifecycleCallbacks(

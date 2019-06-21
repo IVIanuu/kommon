@@ -27,7 +27,7 @@ object Versions {
     const val androidxViewPager = "1.0.0"
     const val bintray = "1.8.4"
     const val constraintLayout = "2.0.0-beta3"
-    const val kotlin = "1.3.31"
+    const val kotlin = "1.3.40"
     const val materialComponents = "1.1.0-alpha06"
     const val mavenGradle = "2.1"
 }
@@ -38,8 +38,10 @@ object Deps {
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
     const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidxFragment = "androidx.fragment:fragment-ktx:${Versions.androidxFragment}"
-    const val androidxLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidxLifecycle}"
-    const val androidxLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
+    const val androidxLifecycleLiveData =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidxLifecycle}"
+    const val androidxLifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
     const val androidxRecyclerView =
         "androidx.recyclerview:recyclerview:${Versions.androidxRecyclerView}"
     const val androidxViewPager = "androidx.viewpager:viewpager:${Versions.androidxViewPager}"
@@ -53,5 +55,6 @@ object Deps {
     const val materialComponents =
         "com.google.android.material:material:${Versions.materialComponents}"
 
-    const val mavenGradlePlugin = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradle}"
+    const val mavenGradlePlugin =
+        "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradle}"
 }

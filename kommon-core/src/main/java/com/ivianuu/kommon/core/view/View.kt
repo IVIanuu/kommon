@@ -32,7 +32,7 @@ inline fun <T> View.getTagOrSet(defaultValue: () -> T) = tagOrNull<T>() ?: defau
 
 inline fun <T> View.getTagOrSet(key: Int, defaultValue: () -> T) =
     tagOrNull<T>(key) ?: defaultValue()
-    .also { setTag(key, it) }
+        .also { setTag(key, it) }
 
 fun <T> View.getTagOrDefault(defaultValue: T) = tagOrNull<T>() ?: defaultValue
 
