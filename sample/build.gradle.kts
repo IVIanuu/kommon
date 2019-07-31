@@ -1,6 +1,5 @@
 import org.gradle.jvm.tasks.Jar
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
-import java.io.File
 
 /*
  * Copyright 2018 Manuel Wrage
@@ -20,10 +19,11 @@ import java.io.File
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
 }
 
 apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/android-build-app.gradle")
+apply(from = "https://raw.githubusercontent.com/IVIanuu/gradle-scripts/master/kt-source-sets-android.gradle")
 
 dependencies {
     implementation(Deps.androidxAppCompat)
