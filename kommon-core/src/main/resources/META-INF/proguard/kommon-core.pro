@@ -1,0 +1,1 @@
+-keepclassmembernames class android.widget.TextView { *; }

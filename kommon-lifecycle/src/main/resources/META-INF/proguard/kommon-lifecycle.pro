@@ -1,0 +1,1 @@
+-keepclassmembernames class androidx.lifecycle.ViewModelStore { *; }

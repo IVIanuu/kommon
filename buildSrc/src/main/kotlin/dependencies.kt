@@ -30,11 +30,11 @@ object Build {
 object Publishing {
     const val groupId = "com.ivianuu.kommon"
     const val vcsUrl = "https://github.com/IVIanuu/kommon"
-    const val version = "${Build.versionName}-dev-12"
+    const val version = "${Build.versionName}-dev13"
 }
 
 object Versions {
-    const val androidGradlePlugin = "3.4.0"
+    const val androidGradlePlugin = "3.6.0-alpha05"
     const val androidxAppCompat = "1.1.0-alpha05"
     const val androidxCore = "1.1.0-alpha05"
     const val androidxFragment = "1.1.0-alpha08"
